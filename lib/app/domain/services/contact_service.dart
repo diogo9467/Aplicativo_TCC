@@ -25,19 +25,19 @@ class ContactService {
   }
 
   validateIdentification(String identificacao) {
-    if (identificacao == null) {
+    if (identificacao == "") {
       throw DomainLayerException('A identificacao é obrigatória.');
     }
   }
 
   validateEmail(String email) {
-    if (email == null) {
+    if (email == "") {
       throw DomainLayerException('O e-mail é obrigatório.');
     }
   }
 
   validatePhone(String phone) {
-    if (phone == null) {
+    if (phone == "") {
       throw DomainLayerException('O telefone é obrigatório.');
     }
   }
