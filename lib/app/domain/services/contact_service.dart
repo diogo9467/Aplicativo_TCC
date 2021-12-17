@@ -10,7 +10,7 @@ class ContactService {
   var _dao = GetIt.I.get<ContactDAO>();
 
   save(Contact contact) {
-    validateName(contact.nome);
+    validateIdentification(contact.identificacao);
     validateEmail(contact.email);
     validatePhone(contact.telefone);
     _dao.save(contact);
@@ -24,9 +24,9 @@ class ContactService {
     return _dao.find();
   }
 
-  validateName(String name) {
-    if (name == null) {
-      throw DomainLayerException('O nome é obrigatório.');
+  validateIdentification(String identificacao) {
+    if (identificacao == null) {
+      throw DomainLayerException('A identificacao é obrigatória.');
     }
   }
 

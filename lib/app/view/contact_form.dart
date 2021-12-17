@@ -9,12 +9,12 @@ import 'package:tcc/app/view/contact_form_back_.dart';
 class ContactForm extends StatelessWidget {
   final _form = GlobalKey<FormState>();
 
-  Widget fieldName(ContactFormBack back) {
+  Widget fieldIdentification(ContactFormBack back) {
     return TextFormField(
-      validator: back.validateName,
-      onSaved: (newValue) => back.contact.nome = newValue,
-      initialValue: back.contact.nome,
-      decoration: InputDecoration(labelText: 'Nome'),
+      validator: back.validateIdentification,
+      onSaved: (newValue) => back.contact.identificacao = newValue,
+      initialValue: back.contact.identificacao,
+      decoration: InputDecoration(labelText: 'Identificação do animal'),
     );
   }
 
@@ -37,15 +37,6 @@ class ContactForm extends StatelessWidget {
       keyboardType: TextInputType.number,
       decoration: InputDecoration(
           labelText: 'Telefone', hintText: 'Formato: (xx) x xxxxxxxx'),
-    );
-  }
-
-  Widget fieldURLImage(ContactFormBack back) {
-    return TextFormField(
-      onSaved: (newValue) => back.contact.urlAvatar = newValue,
-      initialValue: back.contact.urlAvatar,
-      decoration: InputDecoration(
-          labelText: 'Endereço da imagem', hintText: 'Link da imagem'),
     );
   }
 
@@ -82,10 +73,9 @@ class ContactForm extends StatelessWidget {
           key: _form,
           child: Column(
             children: [
-              fieldName(_back),
+              fieldIdentification(_back),
               fieldEmail(_back),
               fieldTelefone(_back),
-              fieldURLImage(_back),
             ],
           ),
         ),

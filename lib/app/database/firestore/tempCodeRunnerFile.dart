@@ -3,10 +3,11 @@
 
 class Contact {
   int id;
-  String nome;
+  String identificacao;
   String telefone;
   String email;
   String urlAvatar;
 
-  Contact({this.id, this.nome, this.telefone, this.email, this.urlAvatar});
+  Contact(
+      {this.id, this.identificacao, this.telefone, this.email, this.urlAvatar});
 }

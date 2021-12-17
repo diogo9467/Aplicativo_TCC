@@ -10,16 +10,18 @@ import 'package:get_it/get_it.dart';
 class ContactFormBack {
   Contact contact;
   var _service = GetIt.I.get<ContactService>();
-  bool _nameIsValid;
+  bool _identificationIsValid;
   bool _emailIsValid;
   bool _telefoneIsValid;
 
-  bool get isValid => _nameIsValid && _emailIsValid && _telefoneIsValid;
+  bool get isValid =>
+      _identificationIsValid && _emailIsValid && _telefoneIsValid;
 
   ContactFormBack(BuildContext context) {
     var parameter = ModalRoute.of(context).settings.arguments;
     contact = (parameter == null)
-        ? Contact(email: '', id: null, nome: '', telefone: '', urlAvatar: '')
+        ? Contact(
+            email: '', id: null, identificacao: '', telefone: '', urlAvatar: '')
         : parameter;
   }
 
@@ -27,13 +29,13 @@ class ContactFormBack {
     await _service.save(contact);
   }
 
-  String validateName(String name) {
+  String validateIdentification(String identification) {
     try {
-      _service.validateName(name);
-      _nameIsValid = true;
+      _service.validateIdentification(identification);
+      _identificationIsValid = true;
       return null;
     } catch (e) {
-      _nameIsValid = false;
+      _identificationIsValid = false;
       return e.toString();
     }
   }

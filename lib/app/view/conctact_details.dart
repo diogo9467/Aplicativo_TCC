@@ -29,7 +29,7 @@ class ContactDetails extends StatelessWidget {
               ),
               Center(
                 child: Text(
-                  '${contact.nome}',
+                  '${contact.identificacao}',
                   style: TextStyle(fontSize: 30),
                 ),
               ),
