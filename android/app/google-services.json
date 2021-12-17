@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "198694929494",
+    "project_id": "bancotcc-59071",
+    "storage_bucket": "bancotcc-59071.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198694929494:android:b9ee728d3622857a2be7f7",
+        "android_client_info": {
+          "package_name": "br.com.diogo.agenda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198694929494-893u89c0p0t1h4dv2c74qtu855ikboga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBAx-6tJMRl2xwsJe-UtEwkBTF-tFKD4k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198694929494-893u89c0p0t1h4dv2c74qtu855ikboga.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

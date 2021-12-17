@@ -1,6 +1,8 @@
 //@dart=2.9
+// ignore_for_file: file_names
+
 class Contact {
-  dynamic id;
+  int id;
   String nome;
   String telefone;
   String email;

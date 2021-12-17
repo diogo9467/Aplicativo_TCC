@@ -4,7 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:agenda/app/view/contact_form_back_.dart';
+import 'package:tcc/app/view/contact_form_back_.dart';
 
 class ContactForm extends StatelessWidget {
   final _form = GlobalKey<FormState>();
@@ -54,10 +54,18 @@ class ContactForm extends StatelessWidget {
     var _back = ContactFormBack(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cadastro de Contato'),
+        iconTheme: IconThemeData(
+          color: Colors.black, //change your color here
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        title: Text(
+          'Cadastro de Animal',
+          style: TextStyle(color: Colors.green),
+        ),
         actions: [
           IconButton(
-              icon: Icon(Icons.save),
+              icon: Icon(Icons.save, color: Colors.green),
               onPressed: () {
                 _form.currentState.validate();
                 _form.currentState.save();
