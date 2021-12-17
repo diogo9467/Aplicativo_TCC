@@ -46,7 +46,7 @@ class ContactForm extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: Colors.black, //change your color here
+          color: Colors.black,
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
