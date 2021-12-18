@@ -3,9 +3,9 @@ class Contact {
   dynamic id;
   String identificacao;
   String telefone;
-  String email;
+  String raca;
   String urlAvatar;
 
   Contact(
-      {this.id, this.identificacao, this.telefone, this.email, this.urlAvatar});
+      {this.id, this.identificacao, this.telefone, this.raca, this.urlAvatar});
 }

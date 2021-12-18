@@ -18,12 +18,12 @@ class ContactForm extends StatelessWidget {
     );
   }
 
-  Widget fieldEmail(ContactFormBack back) {
+  Widget fieldRaca(ContactFormBack back) {
     return TextFormField(
-      validator: back.validateEmail,
-      onSaved: (newValue) => back.contact.email = newValue,
-      initialValue: back.contact.email,
-      decoration: InputDecoration(labelText: 'Email'),
+      validator: back.validateRaca,
+      onSaved: (newValue) => back.contact.raca = newValue,
+      initialValue: back.contact.raca,
+      decoration: InputDecoration(labelText: 'Raca'),
     );
   }
 
@@ -74,7 +74,7 @@ class ContactForm extends StatelessWidget {
           child: Column(
             children: [
               fieldIdentification(_back),
-              fieldEmail(_back),
+              fieldRaca(_back),
               fieldTelefone(_back),
             ],
           ),

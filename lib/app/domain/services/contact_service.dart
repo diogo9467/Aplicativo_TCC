@@ -11,7 +11,7 @@ class ContactService {
 
   save(Contact contact) {
     validateIdentification(contact.identificacao);
-    validateEmail(contact.email);
+    validateRaca(contact.raca);
     validatePhone(contact.telefone);
     _dao.save(contact);
   }
@@ -30,9 +30,9 @@ class ContactService {
     }
   }
 
-  validateEmail(String email) {
-    if (email == "") {
-      throw DomainLayerException('O e-mail é obrigatório.');
+  validateRaca(String raca) {
+    if (raca == "") {
+      throw DomainLayerException('A raça é obrigatório.');
     }
   }
 

@@ -11,17 +11,17 @@ class ContactFormBack {
   Contact contact;
   var _service = GetIt.I.get<ContactService>();
   bool _identificationIsValid;
-  bool _emailIsValid;
+  bool _racaIsValid;
   bool _telefoneIsValid;
 
   bool get isValid =>
-      _identificationIsValid && _emailIsValid && _telefoneIsValid;
+      _identificationIsValid && _racaIsValid && _telefoneIsValid;
 
   ContactFormBack(BuildContext context) {
     var parameter = ModalRoute.of(context).settings.arguments;
     contact = (parameter == null)
         ? Contact(
-            email: '', id: null, identificacao: '', telefone: '', urlAvatar: '')
+            raca: '', id: null, identificacao: '', telefone: '', urlAvatar: '')
         : parameter;
   }
 
@@ -40,13 +40,13 @@ class ContactFormBack {
     }
   }
 
-  String validateEmail(String email) {
+  String validateRaca(String raca) {
     try {
-      _service.validateEmail(email);
-      _emailIsValid = true;
+      _service.validateRaca(raca);
+      _racaIsValid = true;
       return null;
     } catch (e) {
-      _emailIsValid = false;
+      _racaIsValid = false;
       return e.toString();
     }
   }
