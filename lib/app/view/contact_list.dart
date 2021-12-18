@@ -21,7 +21,7 @@ class ContactList extends StatelessWidget {
 
   Widget iconEditButton(Function onPressed) {
     return IconButton(
-        icon: Icon(Icons.edit), color: Colors.blue, onPressed: onPressed);
+        icon: Icon(Icons.edit), color: Colors.green, onPressed: onPressed);
   }
 
   Widget iconRemoveButton(BuildContext context, Function remove) {
