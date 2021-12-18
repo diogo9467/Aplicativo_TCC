@@ -18,7 +18,7 @@ class ContactDAOFirestore implements ContactDAO {
             id: doc.reference.id.toString(),
             identificacao: doc['identificacao'],
             raca: doc['raca'],
-            telefone: doc['telefone'],
+            sexo: doc['sexo'],
             urlAvatar: doc['urlAvatar']))
         .toList();
   }
@@ -32,8 +32,8 @@ class ContactDAOFirestore implements ContactDAO {
   save(Contact contact) {
     contactCollection.doc(contact.id).set({
       'identificacao': contact.identificacao,
-      'raça': contact.raca,
-      'telefone': contact.telefone,
+      'raca': contact.raca,
+      'sexo': contact.sexo,
       'urlAvatar': contact.urlAvatar
     });
   }

@@ -12,7 +12,7 @@ class ContactService {
   save(Contact contact) {
     validateIdentification(contact.identificacao);
     validateRaca(contact.raca);
-    validatePhone(contact.telefone);
+    validateSexo(contact.sexo);
     _dao.save(contact);
   }
 
@@ -32,13 +32,13 @@ class ContactService {
 
   validateRaca(String raca) {
     if (raca == "") {
-      throw DomainLayerException('A raça é obrigatório.');
+      throw DomainLayerException('A raça é obrigatória.');
     }
   }
 
-  validatePhone(String phone) {
-    if (phone == "") {
-      throw DomainLayerException('O telefone é obrigatório.');
+  validateSexo(String sexo) {
+    if (sexo == "") {
+      throw DomainLayerException('O sexo é obrigatório.');
     }
   }
 }

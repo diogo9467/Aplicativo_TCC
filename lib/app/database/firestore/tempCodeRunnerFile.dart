@@ -4,10 +4,9 @@
 class Contact {
   int id;
   String identificacao;
-  String telefone;
+  String sexo;
   String raca;
   String urlAvatar;
 
-  Contact(
-      {this.id, this.identificacao, this.telefone, this.raca, this.urlAvatar});
+  Contact({this.id, this.identificacao, this.sexo, this.raca, this.urlAvatar});
 }

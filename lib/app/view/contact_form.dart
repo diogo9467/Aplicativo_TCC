@@ -3,7 +3,6 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:tcc/app/view/contact_form_back_.dart';
 
 class ContactForm extends StatelessWidget {
@@ -27,16 +26,12 @@ class ContactForm extends StatelessWidget {
     );
   }
 
-  Widget fieldTelefone(ContactFormBack back) {
-    var mask = MaskTextInputFormatter(mask: '(##) # ########');
+  Widget fieldSexo(ContactFormBack back) {
     return TextFormField(
-      validator: back.validateTelefone,
-      onSaved: (newValue) => back.contact.telefone = newValue,
-      initialValue: back.contact.telefone,
-      inputFormatters: [mask],
-      keyboardType: TextInputType.number,
-      decoration: InputDecoration(
-          labelText: 'Telefone', hintText: 'Formato: (xx) x xxxxxxxx'),
+      validator: back.validateSexo,
+      onSaved: (newValue) => back.contact.sexo = newValue,
+      initialValue: back.contact.sexo,
+      decoration: InputDecoration(labelText: 'Sexo'),
     );
   }
 
@@ -75,7 +70,7 @@ class ContactForm extends StatelessWidget {
             children: [
               fieldIdentification(_back),
               fieldRaca(_back),
-              fieldTelefone(_back),
+              fieldSexo(_back),
             ],
           ),
         ),

@@ -90,7 +90,7 @@ class ContactList extends StatelessWidget {
                         onTap: () {
                           _back.goToDetails(context, contato);
                         },
-                        subtitle: Text(contato.telefone),
+                        subtitle: Text(contato.sexo),
                         trailing: Container(
                           width: 100,
                           child: Row(

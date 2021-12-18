@@ -35,8 +35,8 @@ class ContactDetails extends StatelessWidget {
               ),
               Card(
                 child: ListTile(
-                  title: Text('Telefone'),
-                  subtitle: Text('${contact.telefone}'),
+                  title: Text('Sexo'),
+                  subtitle: Text('${contact.sexo}'),
                 ),
               ),
               Card(
