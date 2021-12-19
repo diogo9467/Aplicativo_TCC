@@ -19,7 +19,9 @@ class ContactDAOFirestore implements ContactDAO {
             identificacao: doc['identificacao'],
             raca: doc['raca'],
             sexo: doc['sexo'],
-            urlAvatar: doc['urlAvatar']))
+            data_nascimento: doc['data_nascimento'],
+            data_aquisicao: doc['data_aquisicao'],
+            inicio_lactacao: doc['inicio_lactacao']))
         .toList();
   }
 
@@ -34,7 +36,9 @@ class ContactDAOFirestore implements ContactDAO {
       'identificacao': contact.identificacao,
       'raca': contact.raca,
       'sexo': contact.sexo,
-      'urlAvatar': contact.urlAvatar
+      'data_nascimento': contact.data_nascimento,
+      'data_aquisicao': contact.data_aquisicao,
+      'inicio_lactacao': contact.inicio_lactacao,
     });
   }
 }

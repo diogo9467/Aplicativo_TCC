@@ -13,14 +13,31 @@ class ContactFormBack {
   bool _identificationIsValid;
   bool _racaIsValid;
   bool _sexoIsValid;
+  bool _data_nascimentoIsValid;
+  bool _data_aquisicaoIsValid;
+  bool _inicio_lactacaoIsValid;
 
-  bool get isValid => _identificationIsValid && _racaIsValid && _sexoIsValid;
+  bool get isValid =>
+      _identificationIsValid &&
+      _racaIsValid &&
+      _sexoIsValid &&
+      _data_nascimentoIsValid &&
+      _data_aquisicaoIsValid &&
+      _inicio_lactacaoIsValid;
 
   ContactFormBack(BuildContext context) {
     var parameter = ModalRoute.of(context).settings.arguments;
     contact = (parameter == null)
         ? Contact(
-            raca: '', id: null, identificacao: '', sexo: '', urlAvatar: '')
+            raca: '',
+            id: null,
+            identificacao: '',
+            sexo: '',
+            urlAvatar: '',
+            data_nascimento: '',
+            data_aquisicao: '',
+            inicio_lactacao: '',
+          )
         : parameter;
   }
 
@@ -57,6 +74,39 @@ class ContactFormBack {
       return null;
     } catch (e) {
       _sexoIsValid = false;
+      return e.toString();
+    }
+  }
+
+  String validateData_nascimento(String data_nascimento) {
+    try {
+      _service.validateData_nascimento(data_nascimento);
+      _data_nascimentoIsValid = true;
+      return null;
+    } catch (e) {
+      _data_nascimentoIsValid = false;
+      return e.toString();
+    }
+  }
+
+  String validateData_aquisicao(String data_aquisicao) {
+    try {
+      _service.validateData_aquisicao(data_aquisicao);
+      _data_aquisicaoIsValid = true;
+      return null;
+    } catch (e) {
+      _data_aquisicaoIsValid = false;
+      return e.toString();
+    }
+  }
+
+  String validateInicio_lactacao(String inicio_lactacao) {
+    try {
+      _service.validateInicio_lactacao(inicio_lactacao);
+      _inicio_lactacaoIsValid = true;
+      return null;
+    } catch (e) {
+      _inicio_lactacaoIsValid = false;
       return e.toString();
     }
   }

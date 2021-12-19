@@ -80,32 +80,39 @@ class ContactList extends StatelessWidget {
                   return CircularProgressIndicator();
                 } else {
                   List<Contact> lista = futuro.data;
+
                   return ListView.builder(
                     itemCount: lista.length,
                     itemBuilder: (context, i) {
                       var contato = lista[i];
-                      return ListTile(
-                        leading: circleAvatar(contato.urlAvatar),
-                        title: Text(contato.identificacao),
-                        onTap: () {
-                          _back.goToDetails(context, contato);
-                        },
-                        subtitle: Text(contato.sexo),
-                        trailing: Container(
-                          width: 100,
-                          child: Row(
-                            children: [
-                              iconEditButton(() {
-                                _back.goToForm(context, contato);
-                              }),
-                              iconRemoveButton(context, () {
-                                _back.remove(contato.id);
-                                Navigator.of(context).pop();
-                              })
-                            ],
-                          ),
-                        ),
-                      );
+                      return Container(
+                          margin: const EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(3.0),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border:
+                                  Border.all(color: Colors.black, width: 1.3)),
+                          child: ListTile(
+                            leading: circleAvatar(contato.urlAvatar),
+                            title: Text(contato.identificacao),
+                            onTap: () {
+                              _back.goToDetails(context, contato);
+                            },
+                            trailing: Container(
+                              width: 100,
+                              child: Row(
+                                children: [
+                                  iconEditButton(() {
+                                    _back.goToForm(context, contato);
+                                  }),
+                                  iconRemoveButton(context, () {
+                                    _back.remove(contato.id);
+                                    Navigator.of(context).pop();
+                                  })
+                                ],
+                              ),
+                            ),
+                          ));
                     },
                   );
                 }

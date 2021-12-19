@@ -1,5 +1,5 @@
 //@dart=2.9
-// ignore_for_file: prefer_final_fields
+// ignore_for_file: prefer_final_fields, non_constant_identifier_names, duplicate_ignore
 
 import 'package:tcc/app/domain/entities/contact.dart';
 import 'package:tcc/app/domain/exception/domain_layer_exception.dart';
@@ -13,6 +13,9 @@ class ContactService {
     validateIdentification(contact.identificacao);
     validateRaca(contact.raca);
     validateSexo(contact.sexo);
+    validateData_aquisicao(contact.data_aquisicao);
+    validateData_nascimento(contact.data_nascimento);
+    validateInicio_lactacao(contact.inicio_lactacao);
     _dao.save(contact);
   }
 
@@ -41,4 +44,18 @@ class ContactService {
       throw DomainLayerException('O sexo é obrigatório.');
     }
   }
+
+  validateData_nascimento(String data_nascimento) {
+    if (data_nascimento == "") {
+      throw DomainLayerException('O data de nascimento é obrigatória.');
+    }
+  }
+
+  validateData_aquisicao(String data_aquisicao) {
+    if (data_aquisicao == "") {
+      throw DomainLayerException('O data de aquisição é obrigatória');
+    }
+  }
+
+  validateInicio_lactacao(String inicio_lactacao) {}
 }

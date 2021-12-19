@@ -15,17 +15,24 @@ class ContactDetails extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         var widht = constraints.biggest.width;
         var radius = widht / 4.5;
+        var radiuss = widht / 4.3;
 
         return Scaffold(
           body: ListView(
             padding: EdgeInsets.all(60),
             children: [
               CircleAvatar(
-                child: Icon(
-                  Icons.person,
-                  size: widht / 3,
+                radius: radiuss,
+                backgroundColor: Colors.black,
+                child: CircleAvatar(
+                  radius: radius,
+                  backgroundColor: Colors.white,
+                  child: ClipOval(
+                    child: Image.network(
+                      'https://cdn-icons-png.flaticon.com/512/677/677864.png',
+                    ),
+                  ),
                 ),
-                radius: radius,
               ),
               Center(
                 child: Text(
@@ -34,15 +41,53 @@ class ContactDetails extends StatelessWidget {
                 ),
               ),
               Card(
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(color: Colors.black, width: 1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 child: ListTile(
                   title: Text('Sexo'),
                   subtitle: Text('${contact.sexo}'),
                 ),
               ),
               Card(
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(color: Colors.black, width: 1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 child: ListTile(
-                  title: Text('raca'),
+                  title: Text('Raça'),
                   subtitle: Text('${contact.raca}'),
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(color: Colors.black, width: 1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: ListTile(
+                  title: Text('Data de Nascimento'),
+                  subtitle: Text('${contact.data_nascimento}'),
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(color: Colors.black, width: 1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: ListTile(
+                  title: Text('Data de Aquisição'),
+                  subtitle: Text('${contact.data_aquisicao}'),
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(color: Colors.black, width: 1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: ListTile(
+                  title: Text('Inicio do período de lactacao'),
+                  subtitle: Text('${contact.inicio_lactacao}'),
                 ),
               ),
             ],
