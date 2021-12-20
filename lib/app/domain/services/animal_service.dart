@@ -1,30 +1,30 @@
 //@dart=2.9
 // ignore_for_file: prefer_final_fields, non_constant_identifier_names, duplicate_ignore
 
-import 'package:tcc/app/domain/entities/contact.dart';
+import 'package:tcc/app/domain/entities/animal.dart';
 import 'package:tcc/app/domain/exception/domain_layer_exception.dart';
-import 'package:tcc/app/domain/interfaces/contact_dao.dart';
+import 'package:tcc/app/domain/interfaces/animal_dao.dart';
 import 'package:get_it/get_it.dart';
 
-class ContactService {
-  var _dao = GetIt.I.get<ContactDAO>();
+class AnimalService {
+  var _dao = GetIt.I.get<AnimalDAO>();
 
-  save(Contact contact) {
-    validateIdentification(contact.identificacao);
-    validateRaca(contact.raca);
-    validateSexo(contact.sexo);
-    validateData_aquisicao(contact.data_aquisicao);
-    validateData_nascimento(contact.data_nascimento);
-    validateInicio_lactacao(contact.inicio_lactacao);
+  save(Animal animal) {
+    validateIdentification(animal.identificacao);
+    validateRaca(animal.raca);
+    validateSexo(animal.sexo);
+    validateData_aquisicao(animal.data_aquisicao);
+    validateData_nascimento(animal.data_nascimento);
+    validateInicio_lactacao(animal.inicio_lactacao);
 
-    _dao.save(contact);
+    _dao.save(animal);
   }
 
   remove(dynamic id) {
     _dao.remove(id);
   }
 
-  Future<List<Contact>> find() {
+  Future<List<Animal>> find() {
     return _dao.find();
   }
 

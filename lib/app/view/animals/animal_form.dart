@@ -4,16 +4,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:tcc/app/view/contact_form_back_.dart';
+import 'package:tcc/app/view/animals/animal_form_back_.dart';
 
-class ContactForm extends StatelessWidget {
+class AnimalForm extends StatelessWidget {
   final _form = GlobalKey<FormState>();
 
-  Widget fieldIdentification(ContactFormBack back) {
+  Widget fieldIdentification(AnimalFormBack back) {
     return TextFormField(
         validator: back.validateIdentification,
-        onSaved: (newValue) => back.contact.identificacao = newValue,
-        initialValue: back.contact.identificacao,
+        onSaved: (newValue) => back.animal.identificacao = newValue,
+        initialValue: back.animal.identificacao,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
@@ -25,11 +25,11 @@ class ContactForm extends StatelessWidget {
         ));
   }
 
-  Widget fieldRaca(ContactFormBack back) {
+  Widget fieldRaca(AnimalFormBack back) {
     return TextFormField(
         validator: back.validateRaca,
-        onSaved: (newValue) => back.contact.raca = newValue,
-        initialValue: back.contact.raca,
+        onSaved: (newValue) => back.animal.raca = newValue,
+        initialValue: back.animal.raca,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
@@ -41,11 +41,11 @@ class ContactForm extends StatelessWidget {
         ));
   }
 
-  Widget fieldSexo(ContactFormBack back) {
+  Widget fieldSexo(AnimalFormBack back) {
     return TextFormField(
         validator: back.validateSexo,
-        onSaved: (newValue) => back.contact.sexo = newValue,
-        initialValue: back.contact.sexo,
+        onSaved: (newValue) => back.animal.sexo = newValue,
+        initialValue: back.animal.sexo,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
@@ -57,12 +57,12 @@ class ContactForm extends StatelessWidget {
         ));
   }
 
-  Widget fieldData_nascimento(ContactFormBack back) {
+  Widget fieldData_nascimento(AnimalFormBack back) {
     var mask = MaskTextInputFormatter(mask: '##/##/####');
     return TextFormField(
         validator: back.validateData_nascimento,
-        onSaved: (newValue) => back.contact.data_nascimento = newValue,
-        initialValue: back.contact.data_nascimento,
+        onSaved: (newValue) => back.animal.data_nascimento = newValue,
+        initialValue: back.animal.data_nascimento,
         inputFormatters: [mask],
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
@@ -76,12 +76,12 @@ class ContactForm extends StatelessWidget {
         ));
   }
 
-  Widget fieldData_aquisicao(ContactFormBack back) {
+  Widget fieldData_aquisicao(AnimalFormBack back) {
     var mask = MaskTextInputFormatter(mask: '##/##/####');
     return TextFormField(
         validator: back.validateData_aquisicao,
-        onSaved: (newValue) => back.contact.data_aquisicao = newValue,
-        initialValue: back.contact.data_aquisicao,
+        onSaved: (newValue) => back.animal.data_aquisicao = newValue,
+        initialValue: back.animal.data_aquisicao,
         inputFormatters: [mask],
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
@@ -95,12 +95,12 @@ class ContactForm extends StatelessWidget {
         ));
   }
 
-  Widget fieldInicio_lactacao(ContactFormBack back) {
+  Widget fieldInicio_lactacao(AnimalFormBack back) {
     var mask = MaskTextInputFormatter(mask: '##/##/####');
     return TextFormField(
         validator: back.validateInicio_lactacao,
-        onSaved: (newValue) => back.contact.inicio_lactacao = newValue,
-        initialValue: back.contact.inicio_lactacao,
+        onSaved: (newValue) => back.animal.inicio_lactacao = newValue,
+        initialValue: back.animal.inicio_lactacao,
         inputFormatters: [mask],
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
@@ -116,7 +116,7 @@ class ContactForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _back = ContactFormBack(context);
+    var _back = AnimalFormBack(context);
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(

@@ -1,15 +1,15 @@
 //@dart=2.9
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_string_interpolations
 
-import 'package:tcc/app/domain/entities/contact.dart';
-import 'package:tcc/app/view/contact_details_back.dart';
+import 'package:tcc/app/domain/entities/animal.dart';
+import 'package:tcc/app/view/animals/animal_details_back.dart';
 import 'package:flutter/material.dart';
 
-class ContactDetails extends StatelessWidget {
+class AnimalDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var _back = ContactDetailsBack(context);
-    Contact contact = _back.contact;
+    var _back = AnimalDetailsBack(context);
+    Animal animal = _back.animal;
 
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
@@ -36,7 +36,7 @@ class ContactDetails extends StatelessWidget {
               ),
               Center(
                 child: Text(
-                  '${contact.identificacao}',
+                  '${animal.identificacao}',
                   style: TextStyle(fontSize: 30),
                 ),
               ),
@@ -47,7 +47,7 @@ class ContactDetails extends StatelessWidget {
                 ),
                 child: ListTile(
                   title: Text('Sexo'),
-                  subtitle: Text('${contact.sexo}'),
+                  subtitle: Text('${animal.sexo}'),
                 ),
               ),
               Card(
@@ -57,7 +57,7 @@ class ContactDetails extends StatelessWidget {
                 ),
                 child: ListTile(
                   title: Text('Raça'),
-                  subtitle: Text('${contact.raca}'),
+                  subtitle: Text('${animal.raca}'),
                 ),
               ),
               Card(
@@ -67,7 +67,7 @@ class ContactDetails extends StatelessWidget {
                 ),
                 child: ListTile(
                   title: Text('Data de Nascimento'),
-                  subtitle: Text('${contact.data_nascimento}'),
+                  subtitle: Text('${animal.data_nascimento}'),
                 ),
               ),
               Card(
@@ -77,7 +77,7 @@ class ContactDetails extends StatelessWidget {
                 ),
                 child: ListTile(
                   title: Text('Data de Aquisição'),
-                  subtitle: Text('${contact.data_aquisicao}'),
+                  subtitle: Text('${animal.data_aquisicao}'),
                 ),
               ),
               Card(
@@ -87,7 +87,7 @@ class ContactDetails extends StatelessWidget {
                 ),
                 child: ListTile(
                   title: Text('Inicio do período de lactacao'),
-                  subtitle: Text('${contact.inicio_lactacao}'),
+                  subtitle: Text('${animal.inicio_lactacao}'),
                 ),
               ),
             ],

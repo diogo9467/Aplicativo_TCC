@@ -1,7 +1,7 @@
 //@dart=2.9
 // ignore_for_file: non_constant_identifier_names
 
-class Contact {
+class Animal {
   dynamic id;
   String identificacao;
   String sexo;
@@ -11,7 +11,7 @@ class Contact {
   String data_aquisicao;
   String inicio_lactacao;
 
-  Contact(
+  Animal(
       {this.id,
       this.identificacao,
       this.sexo,

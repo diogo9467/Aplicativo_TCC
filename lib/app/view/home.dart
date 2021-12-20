@@ -3,15 +3,22 @@
 
 import 'package:flutter/material.dart';
 import 'package:tcc/app/view/calendar.dart';
-import 'package:tcc/app/view/contact_list.dart';
+import 'package:tcc/app/view/animals/animal_list.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
           centerTitle: true,
-          title: Text("Home"),
+          backgroundColor: Colors.white,
+          title: Text(
+            'Home',
+            style: TextStyle(color: Colors.green),
+          ),
         ),
         body: SingleChildScrollView(),
         floatingActionButton:
@@ -36,7 +43,7 @@ class Home extends StatelessWidget {
                     'https://cdn-icons-png.flaticon.com/512/677/677864.png')),
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ContactList()));
+                  MaterialPageRoute(builder: (context) => AnimalList()));
             },
             heroTag: null,
           )

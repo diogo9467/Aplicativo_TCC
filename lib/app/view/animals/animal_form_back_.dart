@@ -1,15 +1,15 @@
 //@dart=2.9
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 
-import 'package:tcc/app/domain/entities/contact.dart';
-import 'package:tcc/app/domain/services/contact_service.dart';
+import 'package:tcc/app/domain/entities/animal.dart';
+import 'package:tcc/app/domain/services/animal_service.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
 
-class ContactFormBack {
-  Contact contact;
-  var _service = GetIt.I.get<ContactService>();
+class AnimalFormBack {
+  Animal animal;
+  var _service = GetIt.I.get<AnimalService>();
   bool _identificationIsValid;
   bool _racaIsValid;
   bool _sexoIsValid;
@@ -25,10 +25,10 @@ class ContactFormBack {
       _data_aquisicaoIsValid &&
       _inicio_lactacaoIsValid;
 
-  ContactFormBack(BuildContext context) {
+  AnimalFormBack(BuildContext context) {
     var parameter = ModalRoute.of(context).settings.arguments;
-    contact = (parameter == null)
-        ? Contact(
+    animal = (parameter == null)
+        ? Animal(
             raca: '',
             id: null,
             identificacao: '',
@@ -42,7 +42,7 @@ class ContactFormBack {
   }
 
   save() async {
-    await _service.save(contact);
+    await _service.save(animal);
   }
 
   String validateIdentification(String identification) {

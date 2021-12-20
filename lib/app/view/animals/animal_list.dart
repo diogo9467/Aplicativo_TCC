@@ -1,12 +1,12 @@
 //@dart=2.9
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use
-import 'package:tcc/app/domain/entities/contact.dart';
-import 'package:tcc/app/view/contact_list_back.dart';
+import 'package:tcc/app/domain/entities/animal.dart';
+import 'package:tcc/app/view/animals/animal_list_back.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-class ContactList extends StatelessWidget {
-  final _back = ContactListBack();
+class AnimalList extends StatelessWidget {
+  final _back = AnimalListBack();
 
   CircleAvatar circleAvatar(String url) {
     return (CircleAvatar(
@@ -82,7 +82,7 @@ class ContactList extends StatelessWidget {
                 if (!futuro.hasData) {
                   return CircularProgressIndicator();
                 } else {
-                  List<Contact> lista = futuro.data;
+                  List<Animal> lista = futuro.data;
 
                   return ListView.builder(
                     itemCount: lista.length,
