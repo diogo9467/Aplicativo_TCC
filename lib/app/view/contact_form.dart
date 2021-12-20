@@ -141,7 +141,7 @@ class ContactForm extends StatelessWidget {
               })
         ],
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: EdgeInsets.all(10),
         child: Form(
           key: _form,

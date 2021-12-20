@@ -54,6 +54,9 @@ class ContactList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
           centerTitle: true,
           backgroundColor: Colors.white,
           title: Text(
@@ -69,7 +72,7 @@ class ContactList extends StatelessWidget {
                 ),
                 onPressed: () {
                   _back.goToForm(context);
-                })
+                }),
           ],
         ),
         body: Observer(builder: (context) {
