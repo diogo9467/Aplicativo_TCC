@@ -1,6 +1,6 @@
 //@dart=2.9
 
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, deprecated_member_use
 
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -128,18 +128,6 @@ class AnimalForm extends StatelessWidget {
           'Cadastro de Animal',
           style: TextStyle(color: Colors.green),
         ),
-        actions: [
-          IconButton(
-              icon: Icon(Icons.save, color: Colors.green),
-              onPressed: () {
-                _form.currentState.validate();
-                _form.currentState.save();
-                if (_back.isValid) {
-                  _back.save();
-                  Navigator.of(context).pop();
-                }
-              })
-        ],
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(10),
@@ -158,6 +146,21 @@ class AnimalForm extends StatelessWidget {
               fieldData_aquisicao(_back),
               SizedBox(height: 25),
               fieldInicio_lactacao(_back),
+              SizedBox(height: 25),
+              FlatButton(
+                  color: Colors.green,
+                  onPressed: () {
+                    _form.currentState.validate();
+                    _form.currentState.save();
+                    if (_back.isValid) {
+                      _back.save();
+                      Navigator.of(context).pop();
+                    }
+                  },
+                  child: Text(
+                    'Confirmar cadastro',
+                    style: TextStyle(color: Colors.white, fontSize: 22),
+                  )),
             ],
           ),
         ),
