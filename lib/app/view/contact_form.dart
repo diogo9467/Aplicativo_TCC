@@ -3,6 +3,7 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:tcc/app/view/contact_form_back_.dart';
 
 class ContactForm extends StatelessWidget {
@@ -57,10 +58,13 @@ class ContactForm extends StatelessWidget {
   }
 
   Widget fieldData_nascimento(ContactFormBack back) {
+    var mask = MaskTextInputFormatter(mask: '##/##/####');
     return TextFormField(
         validator: back.validateData_nascimento,
         onSaved: (newValue) => back.contact.data_nascimento = newValue,
         initialValue: back.contact.data_nascimento,
+        inputFormatters: [mask],
+        keyboardType: TextInputType.number,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
@@ -73,10 +77,13 @@ class ContactForm extends StatelessWidget {
   }
 
   Widget fieldData_aquisicao(ContactFormBack back) {
+    var mask = MaskTextInputFormatter(mask: '##/##/####');
     return TextFormField(
         validator: back.validateData_aquisicao,
         onSaved: (newValue) => back.contact.data_aquisicao = newValue,
         initialValue: back.contact.data_aquisicao,
+        inputFormatters: [mask],
+        keyboardType: TextInputType.number,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
@@ -89,10 +96,13 @@ class ContactForm extends StatelessWidget {
   }
 
   Widget fieldInicio_lactacao(ContactFormBack back) {
+    var mask = MaskTextInputFormatter(mask: '##/##/####');
     return TextFormField(
         validator: back.validateInicio_lactacao,
         onSaved: (newValue) => back.contact.inicio_lactacao = newValue,
         initialValue: back.contact.inicio_lactacao,
+        inputFormatters: [mask],
+        keyboardType: TextInputType.number,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),

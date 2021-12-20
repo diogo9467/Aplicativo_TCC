@@ -16,6 +16,7 @@ class ContactService {
     validateData_aquisicao(contact.data_aquisicao);
     validateData_nascimento(contact.data_nascimento);
     validateInicio_lactacao(contact.inicio_lactacao);
+
     _dao.save(contact);
   }
 
@@ -41,7 +42,7 @@ class ContactService {
 
   validateSexo(String sexo) {
     if (sexo == "") {
-      throw DomainLayerException('O sexo é obrigatório.');
+      throw DomainLayerException('O sexo deve ser Macho ou Femea.');
     }
   }
 
