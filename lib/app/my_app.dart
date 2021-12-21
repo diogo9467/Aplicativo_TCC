@@ -6,12 +6,12 @@ import 'package:tcc/app/view/animals/animal_details.dart';
 import 'package:tcc/app/view/animals/animal_form.dart';
 import 'package:tcc/app/view/animals/animal_list.dart';
 import 'package:flutter/material.dart';
-import 'package:tcc/app/view/ciclo_form.dart';
-import 'package:tcc/app/view/event_day.dart';
-import 'package:tcc/app/view/event_form.dart';
-import 'package:tcc/app/view/event_pad_form.dart';
+import 'package:tcc/app/view/evento/ciclo_form.dart';
+import 'package:tcc/app/view/evento/event_day.dart';
+import 'package:tcc/app/view/evento/event_form.dart';
+
 import 'package:tcc/app/view/home.dart';
-import 'package:tcc/app/view/vaccine_form.dart';
+import 'package:tcc/app/view/evento/vaccine_form.dart';
 
 class MyApp extends StatelessWidget {
   static const HOME = '/';
@@ -43,7 +43,6 @@ class MyApp extends StatelessWidget {
         EVENT_FORM: (context) => Event_form(),
         CICLO_FORM: (context) => Ciclo_form(),
         VACCINE_FORM: (context) => Vaccine_form(),
-        EVENT_PAD_FORM: (context) => Event_pad_form(),
       },
     );
   }

@@ -1,5 +1,5 @@
 //@dart=2.9
-// ignore_for_file: file_names, non_constant_identifier_names
+// ignore_for_file: file_names, non_constant_identifier_names, camel_case_types
 
 class Animal {
   int id;
@@ -19,4 +19,16 @@ class Animal {
       this.data_nascimento,
       this.data_aquisicao,
       this.inicio_lactacao});
+}
+
+class EventoPadrao {
+  int id;
+  String nome;
+  String obervacao;
+
+  EventoPadrao({
+    this.id,
+    this.nome,
+    this.obervacao,
+  });
 }
