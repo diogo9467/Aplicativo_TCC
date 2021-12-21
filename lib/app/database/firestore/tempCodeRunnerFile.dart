@@ -24,11 +24,27 @@ class Animal {
 class EventoPadrao {
   int id;
   String nome;
-  String obervacao;
+  String observacao;
 
   EventoPadrao({
     this.id,
     this.nome,
-    this.obervacao,
+    this.observacao,
+  });
+}
+
+class Vacina {
+  int id;
+  String nome;
+  String ult_aplicacao;
+  String quant_doses;
+  String intervalo_doses;
+
+  Vacina({
+    this.id,
+    this.nome,
+    this.ult_aplicacao,
+    this.quant_doses,
+    this.intervalo_doses,
   });
 }

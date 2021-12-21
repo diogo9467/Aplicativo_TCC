@@ -4,8 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:tcc/app/view/evento/ciclo_form.dart';
 import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_form.dart';
-
-import 'package:tcc/app/view/evento/vaccine_form.dart';
+import 'package:tcc/app/view/evento/vacina/vacina_form.dart';
 
 class Event_form extends StatelessWidget {
   @override
@@ -43,10 +42,8 @@ class Event_form extends StatelessWidget {
               FlatButton(
                   color: Colors.green,
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Vaccine_form()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => VacinaForm()));
                   },
                   child: Text('Evento de vacinação')),
             ],

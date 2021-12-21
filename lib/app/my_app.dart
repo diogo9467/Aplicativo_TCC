@@ -11,7 +11,6 @@ import 'package:tcc/app/view/evento/event_day.dart';
 import 'package:tcc/app/view/evento/event_form.dart';
 
 import 'package:tcc/app/view/home.dart';
-import 'package:tcc/app/view/evento/vaccine_form.dart';
 
 class MyApp extends StatelessWidget {
   static const HOME = '/';
@@ -42,7 +41,6 @@ class MyApp extends StatelessWidget {
         ANIMAL_DETAILS: (context) => AnimalDetails(),
         EVENT_FORM: (context) => Event_form(),
         CICLO_FORM: (context) => Ciclo_form(),
-        VACCINE_FORM: (context) => Vaccine_form(),
       },
     );
   }
