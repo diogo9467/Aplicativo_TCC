@@ -7,8 +7,10 @@ import 'package:tcc/app/view/animals/animal_form.dart';
 import 'package:tcc/app/view/animals/animal_list.dart';
 import 'package:flutter/material.dart';
 import 'package:tcc/app/view/evento/ciclo_form.dart';
-import 'package:tcc/app/view/evento/event_day.dart';
+
 import 'package:tcc/app/view/evento/event_form.dart';
+import 'package:tcc/app/view/evento/vacina/vacina_details.dart';
+import 'package:tcc/app/view/evento/vacina/vacina_form.dart';
 
 import 'package:tcc/app/view/home.dart';
 
@@ -23,6 +25,8 @@ class MyApp extends StatelessWidget {
   static const CICLO_FORM = 'ciclo_form';
   static const VACCINE_FORM = 'vaccine_form';
   static const EVENT_PAD_FORM = 'event_pad_form';
+  static const VACINA_FORM = 'vacina_form';
+  static const VACINA_DETAILS = 'vacina_details';
 
   @override
   Widget build(BuildContext context) {
@@ -35,12 +39,13 @@ class MyApp extends StatelessWidget {
       routes: {
         HOME: (context) => Home(),
         CALENDAR: (context) => Calendar(),
-        EVENT_DAY: (context) => Event_day(),
         ANIMAL_LIST: (context) => AnimalList(),
         ANIMAL_FORM: (context) => AnimalForm(),
         ANIMAL_DETAILS: (context) => AnimalDetails(),
         EVENT_FORM: (context) => Event_form(),
         CICLO_FORM: (context) => Ciclo_form(),
+        VACINA_FORM: (context) => VacinaForm(),
+        VACINA_DETAILS: (context) => VacinaDetails(),
       },
     );
   }

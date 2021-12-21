@@ -20,9 +20,9 @@ class VacinaDAOFirestore implements VacinaDAO {
         .map((doc) => Vacina(
               id: doc.reference.id.toString(),
               nome: doc['nome'],
-              ult_aplicacao: doc['ultima aplicacao'],
-              intervalo_doses: doc['intervalo entre doses'],
-              quant_doses: doc['quantidade de doses'],
+              ult_aplicacao: doc['ult_aplicacao'],
+              intervalo_doses: doc['intervalo_doses'],
+              quant_doses: doc['quant_doses'],
             ))
         .toList();
   }

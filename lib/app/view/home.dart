@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:tcc/app/view/calendar.dart';
 import 'package:tcc/app/view/animals/animal_list.dart';
+import 'package:tcc/app/view/evento/vacina/vacina_list.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -44,6 +45,18 @@ class Home extends StatelessWidget {
             onPressed: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => AnimalList()));
+            },
+            heroTag: null,
+          ),
+          FloatingActionButton(
+            child: CircleAvatar(
+                radius: 35,
+                backgroundColor: Colors.white,
+                backgroundImage: NetworkImage(
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUw-t2Op2vTVwrq_2isyqgOotFgiyHLhGvXg&usqp=CAU')),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => VacinaList()));
             },
             heroTag: null,
           )

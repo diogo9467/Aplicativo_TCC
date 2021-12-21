@@ -2,7 +2,7 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use, camel_case_types
 
 import 'package:flutter/material.dart';
-import 'package:tcc/app/view/evento/event_day.dart';
+import 'package:tcc/app/view/evento/vacina/vacina_list.dart';
 
 class Calendar extends StatelessWidget {
   @override
@@ -30,7 +30,7 @@ class Calendar extends StatelessWidget {
                     'https://static.vecteezy.com/ti/vetor-gratis/p1/582034-ilustracao-em-icone-calendario-gr%C3%A1tis-vetor.jpg')),
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Event_day()));
+                  MaterialPageRoute(builder: (context) => VacinaList()));
             },
             heroTag: null,
           )

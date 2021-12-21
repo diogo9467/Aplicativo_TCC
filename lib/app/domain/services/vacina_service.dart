@@ -22,7 +22,7 @@ class VacinaService {
     _dao.remove(id);
   }
 
-  Future<List<Vacina>> finde() {
+  Future<List<Vacina>> find() {
     return _dao.find();
   }
 
