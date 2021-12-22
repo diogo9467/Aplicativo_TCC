@@ -2,9 +2,10 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use, non_constant_identifier_names
 
 import 'package:tcc/app/domain/entities/evento_padrao.dart';
-import 'package:tcc/app/view/evento/event_form.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_form.dart';
 import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_list_back.dart';
 
 class EventoPadraoList extends StatelessWidget {
@@ -62,8 +63,10 @@ class EventoPadraoList extends StatelessWidget {
                 size: 40,
               ),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Event_form()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => EventoPadraoForm()));
               },
             ),
           ],

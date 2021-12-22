@@ -2,6 +2,7 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use
 import 'package:tcc/app/domain/entities/vacina.dart';
 import 'package:tcc/app/view/evento/event_form.dart';
+import 'package:tcc/app/view/evento/vacina/vacina_form.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_list_back.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -62,7 +63,7 @@ class VacinaList extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Event_form()));
+                    MaterialPageRoute(builder: (context) => VacinaForm()));
               },
             ),
           ],
