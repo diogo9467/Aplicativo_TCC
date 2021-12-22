@@ -1,7 +1,7 @@
 //@dart=2.9
 // ignore_for_file: constant_identifier_names, use_key_in_widget_constructors, prefer_const_constructors
 
-import 'package:tcc/app/view/calendar.dart';
+import 'package:tcc/app/view/calendar/calendar.dart';
 import 'package:tcc/app/view/animals/animal_details.dart';
 import 'package:tcc/app/view/animals/animal_form.dart';
 import 'package:tcc/app/view/animals/animal_list.dart';
@@ -9,10 +9,12 @@ import 'package:flutter/material.dart';
 import 'package:tcc/app/view/evento/ciclo_form.dart';
 
 import 'package:tcc/app/view/evento/event_form.dart';
+import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_details.dart';
+import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_form.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_details.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_form.dart';
 
-import 'package:tcc/app/view/home.dart';
+import 'package:tcc/app/view/home/home.dart';
 
 class MyApp extends StatelessWidget {
   static const HOME = '/';
@@ -24,9 +26,10 @@ class MyApp extends StatelessWidget {
   static const EVENT_FORM = 'event_form';
   static const CICLO_FORM = 'ciclo_form';
   static const VACCINE_FORM = 'vaccine_form';
-  static const EVENT_PAD_FORM = 'event_pad_form';
   static const VACINA_FORM = 'vacina_form';
   static const VACINA_DETAILS = 'vacina_details';
+  static const EVENTO_PADRAO_FORM = 'evento_padrao_form';
+  static const EVENTO_PADRAO_DETAILS = 'evento_padrao_details';
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +49,8 @@ class MyApp extends StatelessWidget {
         CICLO_FORM: (context) => Ciclo_form(),
         VACINA_FORM: (context) => VacinaForm(),
         VACINA_DETAILS: (context) => VacinaDetails(),
+        EVENTO_PADRAO_FORM: (context) => EventoPadraoForm(),
+        EVENTO_PADRAO_DETAILS: (context) => EventoPadraoDetails()
       },
     );
   }

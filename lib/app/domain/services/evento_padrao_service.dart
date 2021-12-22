@@ -20,7 +20,7 @@ class EventoPadraoService {
     _dao.remove(id);
   }
 
-  Future<List<EventoPadrao>> finde() {
+  Future<List<EventoPadrao>> find() {
     return _dao.find();
   }
 

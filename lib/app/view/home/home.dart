@@ -2,8 +2,9 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:tcc/app/view/calendar.dart';
+import 'package:tcc/app/view/calendar/calendar.dart';
 import 'package:tcc/app/view/animals/animal_list.dart';
+import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_list.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_list.dart';
 
 class Home extends StatelessWidget {
@@ -57,6 +58,18 @@ class Home extends StatelessWidget {
             onPressed: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => VacinaList()));
+            },
+            heroTag: null,
+          ),
+          FloatingActionButton(
+            child: CircleAvatar(
+                radius: 35,
+                backgroundColor: Colors.white,
+                backgroundImage: NetworkImage(
+                    'https://png.pngtree.com/png-vector/20190926/ourlarge/pngtree-schedule-glyph-icon-vector-png-image_1742916.jpg')),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => EventoPadraoList()));
             },
             heroTag: null,
           )
