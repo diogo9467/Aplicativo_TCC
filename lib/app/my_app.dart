@@ -15,17 +15,16 @@ import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_form.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_details.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_form.dart';
 
-import 'package:tcc/app/view/home/home.dart';
+import 'package:tcc/app/view/login/auth_check.dart';
 
 class MyApp extends StatelessWidget {
-  static const HOME = '/';
+  static const HOME = 'home';
   static const ANIMAL_FORM = 'animal-form';
   static const ANIMAL_DETAILS = 'animal-details';
   static const ANIMAL_LIST = 'animal-list';
   static const CALENDAR = 'calendar';
   static const EVENT_DAY = 'event_day';
   static const EVENT_FORM = 'event_form';
-
   static const VACCINE_FORM = 'vaccine_form';
   static const VACINA_FORM = 'vacina_form';
   static const VACINA_DETAILS = 'vacina_details';
@@ -33,7 +32,6 @@ class MyApp extends StatelessWidget {
   static const EVENTO_PADRAO_DETAILS = 'evento_padrao_details';
   static const CICLO_DETAILS = 'ciclo_details';
   static const CICLO_FORM = 'ciclo_form';
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,8 +40,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
+      home: AuthCheck(),
       routes: {
-        HOME: (context) => Home(),
         CALENDAR: (context) => Calendar(),
         ANIMAL_LIST: (context) => AnimalList(),
         ANIMAL_FORM: (context) => AnimalForm(),
