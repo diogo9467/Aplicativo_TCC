@@ -2,7 +2,8 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use, camel_case_types
 
 import 'package:flutter/material.dart';
-import 'package:tcc/app/view/evento/ciclo_form.dart';
+
+import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_form.dart';
 import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_form.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_form.dart';
 
@@ -31,7 +32,7 @@ class Event_form extends StatelessWidget {
                   color: Colors.green,
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Ciclo_form()));
+                        MaterialPageRoute(builder: (context) => CicloForm()));
                   },
                   child: Text('Evento de ciclo reprodutivo')),
             ],

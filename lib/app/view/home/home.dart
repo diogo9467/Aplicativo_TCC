@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:tcc/app/view/calendar/calendar.dart';
 import 'package:tcc/app/view/animals/animal_list.dart';
+import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_list.dart';
 import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_list.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_list.dart';
 
@@ -27,7 +28,7 @@ class Home extends StatelessWidget {
             Column(mainAxisAlignment: MainAxisAlignment.end, children: [
           FloatingActionButton(
             child: CircleAvatar(
-                radius: 35,
+                radius: 40,
                 backgroundColor: Colors.white,
                 backgroundImage: NetworkImage(
                     'https://static.vecteezy.com/ti/vetor-gratis/p1/582034-ilustracao-em-icone-calendario-gr%C3%A1tis-vetor.jpg')),
@@ -39,7 +40,7 @@ class Home extends StatelessWidget {
           ),
           FloatingActionButton(
             child: CircleAvatar(
-                radius: 35,
+                radius: 40,
                 backgroundColor: Colors.white,
                 backgroundImage: NetworkImage(
                     'https://cdn-icons-png.flaticon.com/512/677/677864.png')),
@@ -51,7 +52,7 @@ class Home extends StatelessWidget {
           ),
           FloatingActionButton(
             child: CircleAvatar(
-                radius: 35,
+                radius: 40,
                 backgroundColor: Colors.white,
                 backgroundImage: NetworkImage(
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUw-t2Op2vTVwrq_2isyqgOotFgiyHLhGvXg&usqp=CAU')),
@@ -63,13 +64,25 @@ class Home extends StatelessWidget {
           ),
           FloatingActionButton(
             child: CircleAvatar(
-                radius: 35,
+                radius: 40,
                 backgroundColor: Colors.white,
                 backgroundImage: NetworkImage(
                     'https://png.pngtree.com/png-vector/20190926/ourlarge/pngtree-schedule-glyph-icon-vector-png-image_1742916.jpg')),
             onPressed: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => EventoPadraoList()));
+            },
+            heroTag: null,
+          ),
+          FloatingActionButton(
+            child: CircleAvatar(
+                radius: 40,
+                backgroundColor: Colors.white,
+                backgroundImage: NetworkImage(
+                    'https://simcides.com.br/wp-content/uploads/2020/06/cow2.png')),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CicloList()));
             },
             heroTag: null,
           )

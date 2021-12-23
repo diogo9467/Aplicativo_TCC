@@ -6,7 +6,8 @@ import 'package:tcc/app/view/animals/animal_details.dart';
 import 'package:tcc/app/view/animals/animal_form.dart';
 import 'package:tcc/app/view/animals/animal_list.dart';
 import 'package:flutter/material.dart';
-import 'package:tcc/app/view/evento/ciclo_form.dart';
+import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_details.dart';
+import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_form.dart';
 
 import 'package:tcc/app/view/evento/event_form.dart';
 import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_details.dart';
@@ -24,12 +25,14 @@ class MyApp extends StatelessWidget {
   static const CALENDAR = 'calendar';
   static const EVENT_DAY = 'event_day';
   static const EVENT_FORM = 'event_form';
-  static const CICLO_FORM = 'ciclo_form';
+
   static const VACCINE_FORM = 'vaccine_form';
   static const VACINA_FORM = 'vacina_form';
   static const VACINA_DETAILS = 'vacina_details';
   static const EVENTO_PADRAO_FORM = 'evento_padrao_form';
   static const EVENTO_PADRAO_DETAILS = 'evento_padrao_details';
+  static const CICLO_DETAILS = 'ciclo_details';
+  static const CICLO_FORM = 'ciclo_form';
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +49,12 @@ class MyApp extends StatelessWidget {
         ANIMAL_FORM: (context) => AnimalForm(),
         ANIMAL_DETAILS: (context) => AnimalDetails(),
         EVENT_FORM: (context) => Event_form(),
-        CICLO_FORM: (context) => Ciclo_form(),
         VACINA_FORM: (context) => VacinaForm(),
         VACINA_DETAILS: (context) => VacinaDetails(),
         EVENTO_PADRAO_FORM: (context) => EventoPadraoForm(),
-        EVENTO_PADRAO_DETAILS: (context) => EventoPadraoDetails()
+        EVENTO_PADRAO_DETAILS: (context) => EventoPadraoDetails(),
+        CICLO_DETAILS: (context) => CicloDetails(),
+        CICLO_FORM: (context) => CicloForm()
       },
     );
   }

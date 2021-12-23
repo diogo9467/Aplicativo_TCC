@@ -48,3 +48,17 @@ class Vacina {
     this.intervalo_doses,
   });
 }
+
+class Ciclo {
+  dynamic id;
+  String utlimo_cio;
+  String ultima_cria;
+  String identificacao;
+
+  Ciclo({
+    this.id,
+    this.utlimo_cio,
+    this.ultima_cria,
+    this.identificacao,
+  });
+}

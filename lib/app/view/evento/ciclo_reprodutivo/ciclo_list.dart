@@ -1,14 +1,15 @@
 //@dart=2.9
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use
-import 'package:tcc/app/domain/entities/vacina.dart';
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use, non_constant_identifier_names
 
-import 'package:tcc/app/view/evento/vacina/vacina_form.dart';
-import 'package:tcc/app/view/evento/vacina/vacina_list_back.dart';
+import 'package:tcc/app/domain/entities/ciclo.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_form.dart';
+import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_list_back.dart';
 
-class VacinaList extends StatelessWidget {
-  final _back = VacinaListBack();
+class CicloList extends StatelessWidget {
+  final _back = CicloListBack();
 
   Widget iconEditButton(Function onPressed) {
     return IconButton(
@@ -51,7 +52,7 @@ class VacinaList extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.white,
           title: Text(
-            'Lista de vacinas',
+            'Lista de ciclos reprodutivos',
             style: TextStyle(color: Colors.green),
           ),
           actions: [
@@ -63,7 +64,7 @@ class VacinaList extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => VacinaForm()));
+                    MaterialPageRoute(builder: (context) => CicloForm()));
               },
             ),
           ],
@@ -75,12 +76,12 @@ class VacinaList extends StatelessWidget {
                 if (!futuro.hasData) {
                   return CircularProgressIndicator();
                 } else {
-                  List<Vacina> lista = futuro.data;
+                  List<Ciclo> lista = futuro.data;
 
                   return ListView.builder(
                     itemCount: lista.length,
                     itemBuilder: (context, i) {
-                      var vacina = lista[i];
+                      var ciclo = lista[i];
                       return Container(
                           margin: const EdgeInsets.all(8),
                           padding: const EdgeInsets.all(3.0),
@@ -96,20 +97,20 @@ class VacinaList extends StatelessWidget {
                                     radius: 27,
                                     backgroundColor: Colors.white,
                                     backgroundImage: NetworkImage(
-                                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUw-t2Op2vTVwrq_2isyqgOotFgiyHLhGvXg&usqp=CAU'))),
-                            title: Text(vacina.nome),
+                                        'https://simcides.com.br/wp-content/uploads/2020/06/cow2.png'))),
+                            title: Text(ciclo.identificacao),
                             onTap: () {
-                              _back.goToDetails(context, vacina);
+                              _back.goToDetails(context, ciclo);
                             },
                             trailing: Container(
                               width: 100,
                               child: Row(
                                 children: [
                                   iconEditButton(() {
-                                    _back.goToForm(context, vacina);
+                                    _back.goToForm(context, ciclo);
                                   }),
                                   iconRemoveButton(context, () {
-                                    _back.remove(vacina.id);
+                                    _back.remove(ciclo.id);
                                     Navigator.of(context).pop();
                                   })
                                 ],
