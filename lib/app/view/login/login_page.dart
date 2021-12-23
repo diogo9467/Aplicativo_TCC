@@ -1,9 +1,10 @@
-// ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_constructors, import_of_legacy_library_into_null_safe
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:tcc/app/domain/services/auth_service.dart';
+import 'package:tcc/app/view/login/reset.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -35,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
       if (isLogin) {
         titulo = 'Bem vindo';
         actionButton = 'Login';
-        toggleButton = 'Ainda não tem conta? Cadastre-se agora.';
+        toggleButton = 'Cadastre-se agora.';
       } else {
         titulo = 'Crie sua conta';
         actionButton = 'Cadastrar';
@@ -164,6 +165,13 @@ class _LoginPageState extends State<LoginPage> {
                 TextButton(
                   onPressed: () => setFormAction(!isLogin),
                   child: Text(toggleButton),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ResetPage()));
+                  },
+                  child: Text('Resetar senha'),
                 ),
               ],
             ),
