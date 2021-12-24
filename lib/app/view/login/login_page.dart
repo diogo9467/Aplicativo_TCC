@@ -81,9 +81,22 @@ class _LoginPageState extends State<LoginPage> {
                 Text(
                   titulo,
                   style: TextStyle(
-                    fontSize: 35,
+                    fontSize: 45,
                     fontWeight: FontWeight.bold,
                     letterSpacing: -1.5,
+                  ),
+                ),
+                CircleAvatar(
+                  radius: 85,
+                  backgroundColor: Colors.black,
+                  child: CircleAvatar(
+                    radius: 83,
+                    backgroundColor: Colors.white,
+                    child: ClipOval(
+                      child: Image.network(
+                        'https://cdn-icons-png.flaticon.com/512/677/677864.png',
+                      ),
+                    ),
                   ),
                 ),
                 Padding(
