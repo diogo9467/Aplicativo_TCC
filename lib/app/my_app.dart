@@ -16,6 +16,7 @@ import 'package:tcc/app/view/evento/vacina/vacina_details.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_form.dart';
 
 import 'package:tcc/app/view/login/auth_check.dart';
+//import 'package:tcc/app/view/user/user_form.dart';
 
 class MyApp extends StatelessWidget {
   static const HOME = 'home';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
   static const EVENTO_PADRAO_DETAILS = 'evento_padrao_details';
   static const CICLO_DETAILS = 'ciclo_details';
   static const CICLO_FORM = 'ciclo_form';
+  static const USER_FORM = 'user_form';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -52,7 +54,8 @@ class MyApp extends StatelessWidget {
         EVENTO_PADRAO_FORM: (context) => EventoPadraoForm(),
         EVENTO_PADRAO_DETAILS: (context) => EventoPadraoDetails(),
         CICLO_DETAILS: (context) => CicloDetails(),
-        CICLO_FORM: (context) => CicloForm()
+        CICLO_FORM: (context) => CicloForm(),
+        //       USER_FORM: (context) => UserForm()
       },
     );
   }

@@ -62,3 +62,13 @@ class Ciclo {
     this.identificacao,
   });
 }
+
+class User {
+  dynamic id;
+  String nome;
+
+  User({
+    this.id,
+    this.nome,
+  });
+}
