@@ -1,4 +1,4 @@
-// ignore_for_file: import_of_legacy_library_into_null_safe, curly_braces_in_flow_control_structures, prefer_const_constructors, prefer_const_constructors_in_immutables
+// ignore_for_file: import_of_legacy_library_into_null_safe, curly_braces_in_flow_control_structures, prefer_const_constructors, prefer_const_constructors_in_immutables, prefer_const_literals_to_create_immutables
 
 import 'package:tcc/app/domain/services/auth_service.dart';
 
