@@ -21,7 +21,23 @@ class VacinaForm extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
           ),
-          hintText: 'Nome',
+          hintText: 'Nome da vacina',
+        ));
+  }
+
+  Widget fieldIdentificacao(VacinaFormBack back) {
+    return TextFormField(
+        validator: back.validateIdentificacao,
+        onSaved: (newValue) => back.vacina.identificacao = newValue,
+        initialValue: back.vacina.identificacao,
+        decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          hintText: 'Nome do animal em que será aplicado',
         ));
   }
 
@@ -101,6 +117,10 @@ class VacinaForm extends StatelessWidget {
             children: [
               fieldNome(_back),
               SizedBox(height: 25),
+              fieldIdentificacao(_back),
+              SizedBox(
+                height: 25,
+              ),
               fieldUlt_aplicacao(_back),
               SizedBox(height: 25),
               fieldIntervalo_doses(_back),

@@ -7,6 +7,7 @@ class Vacina {
   String ult_aplicacao;
   String quant_doses;
   String intervalo_doses;
+  String identificacao;
 
   Vacina({
     this.id,
@@ -14,5 +15,6 @@ class Vacina {
     this.ult_aplicacao,
     this.quant_doses,
     this.intervalo_doses,
+    this.identificacao,
   });
 }
