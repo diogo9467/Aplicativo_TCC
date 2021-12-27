@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.white,
         title: Text(
-          'Agrobusiness',
+          'Agrobusines',
           style: TextStyle(color: Colors.green),
         ),
       ),
