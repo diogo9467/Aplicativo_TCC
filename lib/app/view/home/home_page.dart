@@ -4,9 +4,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import 'package:provider/provider.dart';
-import 'package:tcc/app/domain/services/auth_service.dart';
-
 import 'package:tcc/app/view/calendar/calendar.dart';
 import 'package:tcc/app/view/animals/animal_list.dart';
 import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_list.dart';
@@ -204,6 +201,16 @@ class HomePage extends StatelessWidget {
                   "Eventos diários:",
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 )),
+            SizedBox(
+              height: 360,
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height * 0.0025,
+              decoration: BoxDecoration(
+                border: Border.all(width: 1, color: Colors.green),
+                color: Colors.green,
+              ),
+            ),
           ],
         ),
       ),
@@ -269,27 +276,6 @@ class HomePage extends StatelessWidget {
           },
           heroTag: null,
         ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 24),
-          child: OutlinedButton(
-            onPressed: () => context.read<AuthService>().logout(),
-            style: OutlinedButton.styleFrom(
-              primary: Colors.red,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Text(
-                    'Logout',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        )
       ]),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

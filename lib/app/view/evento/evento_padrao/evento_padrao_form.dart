@@ -3,6 +3,7 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, deprecated_member_use, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_form_back.dart';
 
 class EventoPadraoForm extends StatelessWidget {
@@ -21,6 +22,25 @@ class EventoPadraoForm extends StatelessWidget {
             borderSide: BorderSide(color: Colors.black, width: 0.5),
           ),
           hintText: 'Nome',
+        ));
+  }
+
+  Widget fieldData(EventoPadraoFormBack back) {
+    var mask = MaskTextInputFormatter(mask: '##/##/####');
+    return TextFormField(
+        validator: back.validateData,
+        onSaved: (newValue) => back.eventopadrao.data = newValue,
+        initialValue: back.eventopadrao.data,
+        inputFormatters: [mask],
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          hintText: 'Data do evento',
         ));
   }
 
@@ -62,6 +82,8 @@ class EventoPadraoForm extends StatelessWidget {
           child: Column(
             children: [
               fieldNome(_back),
+              SizedBox(height: 25),
+              fieldData(_back),
               SizedBox(height: 25),
               fieldObservacao(_back),
               SizedBox(height: 25),

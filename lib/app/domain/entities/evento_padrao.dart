@@ -5,10 +5,12 @@ class EventoPadrao {
   dynamic id;
   String nome;
   String observacao;
+  String data;
 
   EventoPadrao({
     this.id,
     this.nome,
     this.observacao,
+    this.data,
   });
 }

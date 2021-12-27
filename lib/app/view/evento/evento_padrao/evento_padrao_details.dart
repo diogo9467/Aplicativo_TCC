@@ -46,6 +46,16 @@ class EventoPadraoDetails extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: ListTile(
+                  title: Text('Data'),
+                  subtitle: Text('${evento_padrao.data}'),
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(color: Colors.black, width: 1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: ListTile(
                   title: Text('Observacao'),
                   subtitle: Text('${evento_padrao.observacao}'),
                 ),

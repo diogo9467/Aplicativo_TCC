@@ -20,6 +20,7 @@ class EventoPadraoDAOFirestore implements EventoPadraoDAO {
     return result.docs
         .map((doc) => EventoPadrao(
             id: doc.reference.id.toString(),
+            data: doc['data'],
             nome: doc['nome'],
             observacao: doc['observacao']))
         .toList();
@@ -33,6 +34,7 @@ class EventoPadraoDAOFirestore implements EventoPadraoDAO {
   @override
   save(EventoPadrao eventopadrao) {
     eventopadraoCollection.doc(eventopadrao.id).set({
+      'data': eventopadrao.data,
       'nome': eventopadrao.nome,
       'observacao': eventopadrao.observacao,
     });

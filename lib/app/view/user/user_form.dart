@@ -3,6 +3,9 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, deprecated_member_use, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tcc/app/domain/services/auth_service.dart';
+
 import 'package:tcc/app/view/user/user_form_back.dart';
 
 class UserForm extends StatelessWidget {
@@ -61,6 +64,33 @@ class UserForm extends StatelessWidget {
                     'Confirmar cadastro',
                     style: TextStyle(color: Colors.white, fontSize: 22),
                   )),
+              Container(
+                margin: EdgeInsets.only(
+                  top: 483,
+                ),
+                child:
+                    Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+                  OutlinedButton(
+                    onPressed: () => context.read<AuthService>().logout(),
+                    style: OutlinedButton.styleFrom(
+                      primary: Colors.red,
+                      side: BorderSide(width: 1.0, color: Colors.red),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Text(
+                            'Logout      ',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ]),
+              ),
             ],
           ),
         ),

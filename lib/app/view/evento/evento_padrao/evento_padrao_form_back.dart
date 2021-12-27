@@ -12,14 +12,16 @@ class EventoPadraoFormBack {
   var _service = GetIt.I.get<EventoPadraoService>();
   bool _nomeIsValid;
   bool _observacaoIsValid;
+  bool _dataIsValid;
 
-  bool get isValid => _nomeIsValid && _observacaoIsValid;
+  bool get isValid => _nomeIsValid && _observacaoIsValid && _dataIsValid;
 
   EventoPadraoFormBack(BuildContext context) {
     var parameter = ModalRoute.of(context).settings.arguments;
     eventopadrao = (parameter == null)
         ? EventoPadrao(
             nome: '',
+            data: '',
             observacao: '',
             id: null,
           )
@@ -37,6 +39,17 @@ class EventoPadraoFormBack {
       return null;
     } catch (e) {
       _nomeIsValid = false;
+      return e.toString();
+    }
+  }
+
+  String validateData(String data) {
+    try {
+      _service.validateNome(data);
+      _dataIsValid = true;
+      return null;
+    } catch (e) {
+      _dataIsValid = false;
       return e.toString();
     }
   }

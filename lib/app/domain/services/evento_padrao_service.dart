@@ -12,6 +12,7 @@ class EventoPadraoService {
   save(EventoPadrao eventopadrao) {
     validateNome(eventopadrao.nome);
     validateObservacao(eventopadrao.observacao);
+    validateData(eventopadrao.data);
 
     _dao.save(eventopadrao);
   }
@@ -27,6 +28,12 @@ class EventoPadraoService {
   validateNome(String nome) {
     if (nome == "") {
       throw DomainLayerException('A identificacao é obrigatória.');
+    }
+  }
+
+  validateData(String data) {
+    if (data == "") {
+      throw DomainLayerException('A data é obrigatória.');
     }
   }
 
