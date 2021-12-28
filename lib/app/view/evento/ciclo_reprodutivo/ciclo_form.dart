@@ -44,6 +44,25 @@ class CicloForm extends StatelessWidget {
         ));
   }
 
+  Widget fieldDia_cio(CicloFormBack back) {
+    var mask = MaskTextInputFormatter(mask: '##/##/####');
+    return TextFormField(
+        validator: back.validateDia_cio,
+        onSaved: (newValue) => back.ciclo.dia_cio = newValue,
+        initialValue: back.ciclo.dia_cio,
+        inputFormatters: [mask],
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          hintText: 'Dia do próximo cio:',
+        ));
+  }
+
   Widget fieldUltimaCria(CicloFormBack back) {
     var mask = MaskTextInputFormatter(mask: '##/##/####');
     return TextFormField(
@@ -59,7 +78,26 @@ class CicloForm extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
           ),
-          hintText: 'Ultimo Cria:',
+          hintText: 'Dia da última cria',
+        ));
+  }
+
+  Widget fieldDia_cria(CicloFormBack back) {
+    var mask = MaskTextInputFormatter(mask: '##/##/####');
+    return TextFormField(
+        validator: back.validateDia_cria,
+        onSaved: (newValue) => back.ciclo.dia_cria = newValue,
+        initialValue: back.ciclo.dia_cria,
+        inputFormatters: [mask],
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          hintText: 'Dia do próximo cio se o animal tenha tido cria',
         ));
   }
 
@@ -88,7 +126,41 @@ class CicloForm extends StatelessWidget {
               SizedBox(height: 25),
               fieldUltimoCio(_back),
               SizedBox(height: 25),
+              Container(
+                margin: EdgeInsets.symmetric(),
+                height: 60,
+                width: MediaQuery.of(context).size.width * 1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(6.0),
+                  border: Border.all(
+                    width: 1,
+                    color: Colors.black,
+                  ),
+                ),
+                child: Text(
+                    "Recomendamos que caso o animal não tenha tido cria recentemente o período entre cios seja considerado 22 dias "),
+              ),
+              SizedBox(height: 25),
+              fieldDia_cio(_back),
+              SizedBox(height: 25),
               fieldUltimaCria(_back),
+              SizedBox(height: 25),
+              Container(
+                margin: EdgeInsets.symmetric(),
+                height: 60,
+                width: MediaQuery.of(context).size.width * 1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(6.0),
+                  border: Border.all(
+                    width: 1,
+                    color: Colors.black,
+                  ),
+                ),
+                child: Text(
+                    " Recomendamos que caso o animal não tenha tido cria recentemente o período entre cios seja considerado 22 dias. "),
+              ),
+              SizedBox(height: 25),
+              fieldDia_cria(_back),
               SizedBox(height: 25),
               FlatButton(
                   color: Colors.green,

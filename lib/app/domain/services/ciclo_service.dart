@@ -13,7 +13,8 @@ class CicloService {
     validateUltimo_cio(ciclo.ultimo_cio);
     validateUltima_cria(ciclo.ultima_cria);
     validateIdentificacao(ciclo.identificacao);
-
+    validateDia_cio(ciclo.dia_cio);
+    validateDia_cria(ciclo.dia_cria);
     _dao.save(ciclo);
   }
 
@@ -34,4 +35,7 @@ class CicloService {
       throw DomainLayerException('A identificacao é obrigatória.');
     }
   }
+
+  validateDia_cio(String dia_cio) {}
+  validateDia_cria(String dia_cria) {}
 }

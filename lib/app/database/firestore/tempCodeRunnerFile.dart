@@ -54,12 +54,16 @@ class Ciclo {
   String utlimo_cio;
   String ultima_cria;
   String identificacao;
+  String dia_cria;
+  String dia_cio;
 
   Ciclo({
     this.id,
     this.utlimo_cio,
     this.ultima_cria,
     this.identificacao,
+    this.dia_cio,
+    this.dia_cria,
   });
 }
 

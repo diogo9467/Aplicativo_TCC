@@ -6,11 +6,15 @@ class Ciclo {
   String ultimo_cio;
   String ultima_cria;
   String identificacao;
+  String dia_cio;
+  String dia_cria;
 
   Ciclo({
     this.id,
     this.ultimo_cio,
     this.ultima_cria,
     this.identificacao,
+    this.dia_cio,
+    this.dia_cria,
   });
 }

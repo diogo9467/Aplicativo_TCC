@@ -29,7 +29,7 @@ class VacinaService {
 
   validateNome(String nome) {
     if (nome == "") {
-      throw DomainLayerException('A identificacao é obrigatória.');
+      throw DomainLayerException('O nome da vacina é obrigatória.');
     }
   }
 
@@ -37,15 +37,11 @@ class VacinaService {
 
   validateQuant_doses(String quant_doses) {
     if (quant_doses == "") {
-      throw DomainLayerException('A identificacao é obrigatória.');
+      throw DomainLayerException('A quantidade de doeses é obrigatória.');
     }
   }
 
-  validateIntervalo_doses(String intervalo_doses) {
-    if (intervalo_doses == "") {
-      throw DomainLayerException('A identificacao é obrigatória.');
-    }
-  }
+  validateIntervalo_doses(String intervalo_doses) {}
 
   validateIdentificacao(String identificacao) {
     if (identificacao == "") {

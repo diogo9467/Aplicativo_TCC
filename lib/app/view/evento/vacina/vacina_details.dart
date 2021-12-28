@@ -46,27 +46,39 @@ class VacinaDetails extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: ListTile(
-                  title: Text('Ultima aplicacao'),
-                  subtitle: Text('${vacina.ult_aplicacao}'),
+                  title: Text('Nome do animal em que será aplicado:'),
+                  subtitle: Text('${vacina.identificacao}'),
                 ),
               ),
+              if ('${vacina.ult_aplicacao}' != "")
+                Card(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: ListTile(
+                    title: Text('Ultima aplicacao:'),
+                    subtitle: Text('${vacina.ult_aplicacao}'),
+                  ),
+                ),
+              if ('${vacina.intervalo_doses}' != "")
+                Card(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: ListTile(
+                    title: Text('Intervalo das doses:'),
+                    subtitle: Text('${vacina.intervalo_doses}'),
+                  ),
+                ),
               Card(
                 shape: RoundedRectangleBorder(
                   side: BorderSide(color: Colors.black, width: 1),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: ListTile(
-                  title: Text('Intervalo das doses'),
-                  subtitle: Text('${vacina.intervalo_doses}'),
-                ),
-              ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(color: Colors.black, width: 1),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: ListTile(
-                  title: Text('Quantidade de doses'),
+                  title: Text('Quantidade de doses:'),
                   subtitle: Text('${vacina.quant_doses}'),
                 ),
               ),

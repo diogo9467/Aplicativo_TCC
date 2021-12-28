@@ -80,16 +80,17 @@ class AnimalDetails extends StatelessWidget {
                   subtitle: Text('${animal.data_aquisicao}'),
                 ),
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(color: Colors.black, width: 1),
-                  borderRadius: BorderRadius.circular(10),
+              if ('${animal.inicio_lactacao}' != "")
+                Card(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: ListTile(
+                    title: Text('Inicio do período de lactacao'),
+                    subtitle: Text('${animal.inicio_lactacao}'),
+                  ),
                 ),
-                child: ListTile(
-                  title: Text('Inicio do período de lactacao'),
-                  subtitle: Text('${animal.inicio_lactacao}'),
-                ),
-              ),
             ],
           ),
           floatingActionButton: FloatingActionButton(

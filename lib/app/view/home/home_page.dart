@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.white,
         title: Text(
-          'Agrobusines',
+          'Agrobusiness',
           style: TextStyle(color: Colors.green),
         ),
       ),
@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Container(
-              height: MediaQuery.of(context).size.height * 0.05,
+              height: MediaQuery.of(context).size.height * 0.04,
               width: MediaQuery.of(context).size.width * 1,
               decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.black),
@@ -190,7 +190,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Container(
-                height: MediaQuery.of(context).size.height * 0.07,
+                height: MediaQuery.of(context).size.height * 0.06,
                 width: MediaQuery.of(context).size.width * 1,
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(

@@ -40,26 +40,50 @@ class CicloDetails extends StatelessWidget {
                   style: TextStyle(fontSize: 30),
                 ),
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(color: Colors.black, width: 1),
-                  borderRadius: BorderRadius.circular(10),
+              if ('${ciclo.ultimo_cio}' != "")
+                Card(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: ListTile(
+                    title: Text('Ultimo cio'),
+                    subtitle: Text('${ciclo.ultimo_cio}'),
+                  ),
                 ),
-                child: ListTile(
-                  title: Text('Ultimo cio'),
-                  subtitle: Text('${ciclo.ultimo_cio}'),
+              if ('${ciclo.dia_cio}' != "")
+                Card(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: ListTile(
+                    title: Text('Proximo cio '),
+                    subtitle: Text('${ciclo.dia_cio}'),
+                  ),
                 ),
-              ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(color: Colors.black, width: 1),
-                  borderRadius: BorderRadius.circular(10),
+              if ('${ciclo.ultima_cria}' != "")
+                Card(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: ListTile(
+                    title: Text('Ultima cria'),
+                    subtitle: Text('${ciclo.ultima_cria}'),
+                  ),
                 ),
-                child: ListTile(
-                  title: Text('Ultima cria'),
-                  subtitle: Text('${ciclo.ultima_cria}'),
+              if ('${ciclo.dia_cria}' != "")
+                Card(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: ListTile(
+                    title: Text('Proximo cio em caso de cria'),
+                    subtitle: Text('${ciclo.dia_cria}'),
+                  ),
                 ),
-              ),
             ],
           ),
           floatingActionButton: FloatingActionButton(

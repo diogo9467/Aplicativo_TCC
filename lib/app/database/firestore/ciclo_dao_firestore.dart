@@ -21,7 +21,9 @@ class CicloDAOFirestore implements CicloDAO {
         .map((doc) => Ciclo(
               id: doc.reference.id.toString(),
               ultimo_cio: doc['ultimo_cio'],
+              dia_cio: doc['dia_cio'],
               ultima_cria: doc['ultima_cria'],
+              dia_cria: doc['dia_cria'],
               identificacao: doc['identificacao'],
             ))
         .toList();
@@ -38,6 +40,8 @@ class CicloDAOFirestore implements CicloDAO {
       'identificacao': ciclo.identificacao,
       'ultimo_cio': ciclo.ultimo_cio,
       'ultima_cria': ciclo.ultima_cria,
+      'dia_cria': ciclo.dia_cria,
+      'dia_cio': ciclo.dia_cio,
     });
   }
 }

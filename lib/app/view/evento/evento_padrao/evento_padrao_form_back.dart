@@ -45,7 +45,7 @@ class EventoPadraoFormBack {
 
   String validateData(String data) {
     try {
-      _service.validateNome(data);
+      _service.validateData(data);
       _dataIsValid = true;
       return null;
     } catch (e) {

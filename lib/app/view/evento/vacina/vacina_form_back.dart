@@ -87,7 +87,7 @@ class VacinaFormBack {
 
   String validateQuant_doses(String quant_doses) {
     try {
-      _service.validateUlt_aplicacao(quant_doses);
+      _service.validateQuant_doses(quant_doses);
       _quant_dosesIsValid = true;
       return null;
     } catch (e) {
