@@ -74,7 +74,12 @@ class HomePage extends StatelessWidget {
                                     Row(
                                       children: <Widget>[
                                         Container(
-                                          margin: EdgeInsets.only(left: 15),
+                                          margin: EdgeInsets.only(
+                                            left: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.06,
+                                          ),
                                           child: CircleAvatar(
                                               radius: 30,
                                               backgroundColor: Colors.white,
@@ -125,7 +130,6 @@ class HomePage extends StatelessWidget {
                                             Row(
                                               children: <Widget>[
                                                 Container(
-                                                  margin: EdgeInsets.only(),
                                                   height: MediaQuery.of(context)
                                                           .size
                                                           .height *
@@ -134,6 +138,12 @@ class HomePage extends StatelessWidget {
                                                           .size
                                                           .width *
                                                       0.6,
+                                                  margin: EdgeInsets.only(
+                                                    left: MediaQuery.of(context)
+                                                            .size
+                                                            .width *
+                                                        0.06,
+                                                  ),
                                                   decoration: BoxDecoration(
                                                     borderRadius:
                                                         BorderRadius.all(
