@@ -1,10 +1,10 @@
 //@dart=2.9
 
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, deprecated_member_use, camel_case_types
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, deprecated_member_use, camel_case_types, unused_import, missing_required_param
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tcc/app/domain/services/auth_service.dart';
+//import 'package:tcc/app/domain/services/auth_service.dart';
 
 import 'package:tcc/app/view/user/user_form_back.dart';
 
@@ -61,7 +61,7 @@ class UserForm extends StatelessWidget {
                     }
                   },
                   child: Text(
-                    'Confirmar cadastro',
+                    'Confirmar modificação',
                     style: TextStyle(color: Colors.white, fontSize: 22),
                   )),
               Container(
@@ -71,7 +71,7 @@ class UserForm extends StatelessWidget {
                 child:
                     Column(mainAxisAlignment: MainAxisAlignment.end, children: [
                   OutlinedButton(
-                    onPressed: () => context.read<AuthService>().logout(),
+                    //                   onPressed: () => context.read<AuthService>().logout(),
                     style: OutlinedButton.styleFrom(
                       primary: Colors.red,
                       side: BorderSide(width: 1.0, color: Colors.red),

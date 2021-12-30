@@ -15,7 +15,7 @@ import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_form.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_details.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_form.dart';
 
-import 'package:tcc/app/view/login/auth_check.dart';
+import 'package:tcc/app/view/login/login_screen.dart';
 //import 'package:tcc/app/view/user/user_form.dart';
 
 class MyApp extends StatelessWidget {
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: AuthCheck(),
+      home: LoginScreen(),
       routes: {
         CALENDAR: (context) => Calendar(),
         ANIMAL_LIST: (context) => AnimalList(),

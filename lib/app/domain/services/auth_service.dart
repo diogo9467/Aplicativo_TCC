@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_final_fields
+// ignore_for_file: prefer_final_fields, prefer_null_aware_operators
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

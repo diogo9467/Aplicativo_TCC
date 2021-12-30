@@ -1,6 +1,6 @@
 //@dart=2.9
 
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, avoid_print
 
 import 'package:tcc/app/domain/services/auth_service.dart';
 import 'package:tcc/app/injection.dart';
@@ -17,4 +17,5 @@ void main() async {
       child: MyApp(),
     ),
   );
+  print("b");
 }
