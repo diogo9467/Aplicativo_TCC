@@ -1,11 +1,12 @@
-// ignore_for_file: prefer_const_constructors, avoid_print
+// ignore_for_file: prefer_const_constructors, avoid_print, import_of_legacy_library_into_null_safe
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:tcc/app/view/home/home_screen.dart';
+import 'package:tcc/app/view/bar/sidebar/sidebar_layout.dart';
+
 import 'package:tcc/app/view/login/user_model.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -313,7 +314,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         .set(userModel.toMap());
     Fluttertoast.showToast(msg: "Conta criada com sucesso");
 
-    Navigator.pushAndRemoveUntil((context),
-        MaterialPageRoute(builder: (context) => HomePage()), (route) => false);
+    Navigator.pushAndRemoveUntil(
+        (context),
+        MaterialPageRoute(builder: (context) => SideBarLayout()),
+        (route) => false);
   }
 }

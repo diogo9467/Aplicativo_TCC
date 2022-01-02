@@ -1,10 +1,10 @@
-//@dart=2.9
+/*//@dart=2.9
 // ignore_for_file: prefer_final_fields
 
 import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
-import 'package:tcc/app/domain/entities/user.dart';
+import 'package:tcc/app/domain/entities/users.dart';
 import 'package:tcc/app/domain/services/user_service.dart';
 import 'package:tcc/app/my_app.dart';
 
@@ -33,4 +33,4 @@ abstract class _UserListBack with Store {
         .pushNamed(MyApp.USER_FORM, arguments: user)
         .then(refreshList);
   }
-}
+}*/

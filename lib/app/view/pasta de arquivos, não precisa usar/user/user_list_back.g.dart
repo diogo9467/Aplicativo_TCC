@@ -1,4 +1,4 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+/*// GENERATED CODE - DO NOT MODIFY BY HAND
 // @dart=2.9
 
 part of 'user_list_back.dart';
@@ -45,4 +45,4 @@ mixin _$UserListBack on _UserListBack, Store {
 list: ${list}
     ''';
   }
-}
+}*/

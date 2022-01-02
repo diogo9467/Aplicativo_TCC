@@ -1,7 +1,7 @@
-//@dart=2.9
+/*//@dart=2.9
 
 import 'package:flutter/cupertino.dart';
-import 'package:tcc/app/domain/entities/user.dart';
+import 'package:tcc/app/domain/entities/users.dart';
 
 class UserDetailsBack {
   BuildContext context;
@@ -10,4 +10,4 @@ class UserDetailsBack {
   UserDetailsBack(this.context) {
     user = ModalRoute.of(context).settings.arguments;
   }
-}
+}*/
