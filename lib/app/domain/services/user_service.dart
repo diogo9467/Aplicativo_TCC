@@ -10,7 +10,7 @@ class UserService {
   var _dao = GetIt.I.get<UserDAO>();
 
   save(User user) {
-    validateNome(user.nome);
+    validateNome(user.firstName);
 
     _dao.save(user);
   }
@@ -23,8 +23,8 @@ class UserService {
     return _dao.find();
   }
 
-  validateNome(String nome) {
-    if (nome == "") {
+  validateNome(String firstName) {
+    if (firstName == "") {
       throw DomainLayerException('A identificacao é obrigatória.');
     }
   }

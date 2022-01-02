@@ -1,13 +1,14 @@
 //@dart=2.9
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use
 import 'package:tcc/app/domain/entities/vacina.dart';
+import 'package:tcc/app/view/bar/bloc.navigation_bloc/navigation_bloc.dart';
 
 import 'package:tcc/app/view/evento/vacina/vacina_form.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_list_back.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-class VacinaList extends StatelessWidget {
+class VacinaList extends StatelessWidget with NavigationStates {
   final _back = VacinaListBack();
 
   Widget iconEditButton(Function onPressed) {

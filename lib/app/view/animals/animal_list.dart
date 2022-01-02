@@ -4,8 +4,9 @@ import 'package:tcc/app/domain/entities/animal.dart';
 import 'package:tcc/app/view/animals/animal_list_back.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:tcc/app/view/bar/bloc.navigation_bloc/navigation_bloc.dart';
 
-class AnimalList extends StatelessWidget {
+class AnimalList extends StatelessWidget with NavigationStates {
   final _back = AnimalListBack();
 
   CircleAvatar circleAvatar(String url) {

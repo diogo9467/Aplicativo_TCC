@@ -18,7 +18,7 @@ class UserFormBack {
     var parameter = ModalRoute.of(context).settings.arguments;
     user = (parameter == null)
         ? User(
-            nome: '',
+            firstName: '',
             id: null,
           )
         : parameter;

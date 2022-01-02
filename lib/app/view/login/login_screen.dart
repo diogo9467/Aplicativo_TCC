@@ -1,9 +1,10 @@
-// ignore_for_file: prefer_const_constructors, avoid_print, import_of_legacy_library_into_null_safe
+// ignore_for_file: prefer_const_constructors, avoid_print, import_of_legacy_library_into_null_safe, unused_local_variable
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:tcc/app/view/home/home_screen.dart';
+import 'package:tcc/app/view/bar/sidebar/sidebar_layout.dart';
+
 import 'package:tcc/app/view/login/registration_screen.dart';
 import 'package:tcc/app/view/login/reset.dart';
 
@@ -193,7 +194,7 @@ class _LoginScreenState extends State<LoginScreen> {
             .then((uid) => {
                   Fluttertoast.showToast(msg: "Login Successful"),
                   Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => HomeScreen())),
+                      MaterialPageRoute(builder: (context) => SideBarLayout())),
                 });
       } on FirebaseAuthException catch (error) {
         switch (error.code) {

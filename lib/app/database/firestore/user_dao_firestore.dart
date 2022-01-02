@@ -11,7 +11,7 @@ class UserDAOFirestore implements UserDAO {
   CollectionReference userCollection;
 
   UserDAOFirestore() {
-    userCollection = FirebaseFirestore.instance.collection('user');
+    userCollection = FirebaseFirestore.instance.collection('users');
   }
 
   @override
@@ -20,7 +20,7 @@ class UserDAOFirestore implements UserDAO {
     return result.docs
         .map((doc) => User(
               id: doc.reference.id.toString(),
-              nome: doc['nome'],
+              firstName: doc['firstName'],
             ))
         .toList();
   }
@@ -33,7 +33,7 @@ class UserDAOFirestore implements UserDAO {
   @override
   save(User user) {
     userCollection.doc(user.id).set({
-      'nome': user.nome,
+      'firstName': user.firstName,
     });
   }
 }

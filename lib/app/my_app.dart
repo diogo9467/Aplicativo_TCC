@@ -1,6 +1,7 @@
 //@dart=2.9
 // ignore_for_file: constant_identifier_names, use_key_in_widget_constructors, prefer_const_constructors
 
+import 'package:tcc/app/view/bar/sidebar/sidebar_layout.dart';
 import 'package:tcc/app/view/calendar/calendar.dart';
 import 'package:tcc/app/view/animals/animal_details.dart';
 import 'package:tcc/app/view/animals/animal_form.dart';
@@ -14,9 +15,6 @@ import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_details.dart';
 import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_form.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_details.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_form.dart';
-
-import 'package:tcc/app/view/login/login_screen.dart';
-//import 'package:tcc/app/view/user/user_form.dart';
 
 class MyApp extends StatelessWidget {
   static const HOME = 'home';
@@ -42,7 +40,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: LoginScreen(),
+      home: SideBarLayout(),
       routes: {
         CALENDAR: (context) => Calendar(),
         ANIMAL_LIST: (context) => AnimalList(),

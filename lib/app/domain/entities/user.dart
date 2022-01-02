@@ -3,10 +3,10 @@
 
 class User {
   dynamic id;
-  String nome;
+  String firstName;
 
   User({
     this.id,
-    this.nome,
+    this.firstName,
   });
 }
