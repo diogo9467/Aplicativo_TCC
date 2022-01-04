@@ -28,6 +28,7 @@ class _HomeScreenState extends State<HomePage> with NavigationStates {
   User? user = FirebaseAuth.instance.currentUser;
 
   UserModel loggedInUser = UserModel();
+  late String uid;
 
   @override
   void initState() {
@@ -178,7 +179,7 @@ class _HomeScreenState extends State<HomePage> with NavigationStates {
                                                     context,
                                                     MaterialPageRoute(
                                                         builder: (context) =>
-                                                            HomePage()));
+                                                            UserForm()));
                                               },
                                             ),
                                           ),
@@ -201,27 +202,6 @@ class _HomeScreenState extends State<HomePage> with NavigationStates {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  /*Container(
-                    margin: EdgeInsets.only(
-                      left: MediaQuery.of(context).size.width * 0.06,
-                    ),
-                    child: OutlinedButton(
-                      onPressed: () {
-                        logout(context);
-                      },
-                      style: OutlinedButton.styleFrom(
-                        primary: Colors.red,
-                        side: BorderSide(width: 1.0, color: Colors.red),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('Logout',
-                              style: TextStyle(color: Colors.redAccent)),
-                        ],
-                      ),
-                    ),
-                  ),*/
                   Spacer(),
                   Text(
                     DateFormat('dd/MM/yyyy').format(data),

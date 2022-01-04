@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_details.dart';
 import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_form.dart';
 
-import 'package:tcc/app/view/evento/event_form.dart';
 import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_details.dart';
 import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_form.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_details.dart';
@@ -46,7 +45,6 @@ class MyApp extends StatelessWidget {
         ANIMAL_LIST: (context) => AnimalList(),
         ANIMAL_FORM: (context) => AnimalForm(),
         ANIMAL_DETAILS: (context) => AnimalDetails(),
-        EVENT_FORM: (context) => Event_form(),
         VACINA_FORM: (context) => VacinaForm(),
         VACINA_DETAILS: (context) => VacinaDetails(),
         EVENTO_PADRAO_FORM: (context) => EventoPadraoForm(),

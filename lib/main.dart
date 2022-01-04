@@ -13,9 +13,10 @@ void main() async {
   await setupInjection();
   runApp(
     MultiProvider(
-      providers: [ChangeNotifierProvider(create: (context) => AuthService())],
+      providers: [
+        ChangeNotifierProvider(create: (context) => AuthService.getglobal())
+      ],
       child: MyApp(),
     ),
   );
-  print("b");
 }

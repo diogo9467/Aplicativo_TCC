@@ -2,6 +2,7 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 
 import 'package:tcc/app/domain/entities/evento_padrao.dart';
+import 'package:tcc/app/domain/services/auth_service.dart';
 import 'package:tcc/app/domain/services/evento_padrao_service.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -9,6 +10,7 @@ import 'package:get_it/get_it.dart';
 
 class EventoPadraoFormBack {
   EventoPadrao eventopadrao;
+  //var uid = EventoPadraoFormBack_.uid;
   var _service = GetIt.I.get<EventoPadraoService>();
   bool _nomeIsValid;
   bool _observacaoIsValid;
@@ -23,6 +25,7 @@ class EventoPadraoFormBack {
             nome: '',
             data: '',
             observacao: '',
+            uid: AuthService.getUser().uid,
             id: null,
           )
         : parameter;

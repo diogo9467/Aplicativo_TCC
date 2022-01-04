@@ -19,10 +19,12 @@ class EventoPadraoDAOFirestore implements EventoPadraoDAO {
     var result = await eventopadraoCollection.get();
     return result.docs
         .map((doc) => EventoPadrao(
-            id: doc.reference.id.toString(),
-            data: doc['data'],
-            nome: doc['nome'],
-            observacao: doc['observacao']))
+              id: doc.reference.id.toString(),
+              data: doc['data'],
+              nome: doc['nome'],
+              observacao: doc['observacao'],
+              uid: doc['uid'],
+            ))
         .toList();
   }
 
@@ -37,6 +39,7 @@ class EventoPadraoDAOFirestore implements EventoPadraoDAO {
       'data': eventopadrao.data,
       'nome': eventopadrao.nome,
       'observacao': eventopadrao.observacao,
+      'uid': eventopadrao.uid,
     });
   }
 }

@@ -1,6 +1,7 @@
 //@dart=2.9
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use
 import 'package:tcc/app/domain/entities/vacina.dart';
+import 'package:tcc/app/domain/services/auth_service.dart';
 import 'package:tcc/app/view/bar/bloc.navigation_bloc/navigation_bloc.dart';
 
 import 'package:tcc/app/view/evento/vacina/vacina_form.dart';
@@ -77,6 +78,7 @@ class VacinaList extends StatelessWidget with NavigationStates {
                   return CircularProgressIndicator();
                 } else {
                   List<Vacina> lista = futuro.data;
+                  lista.removeWhere((e) => e.uid != AuthService.getUser().uid);
 
                   return ListView.builder(
                     itemCount: lista.length,

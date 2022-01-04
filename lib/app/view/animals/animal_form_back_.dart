@@ -6,6 +6,7 @@ import 'package:tcc/app/domain/services/animal_service.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
+import 'package:tcc/app/domain/services/auth_service.dart';
 
 class AnimalFormBack {
   Animal animal;
@@ -37,6 +38,7 @@ class AnimalFormBack {
             data_nascimento: '',
             data_aquisicao: '',
             inicio_lactacao: '',
+            uid: AuthService.getUser().uid,
           )
         : parameter;
   }

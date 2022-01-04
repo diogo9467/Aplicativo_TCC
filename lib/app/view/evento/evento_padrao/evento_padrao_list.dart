@@ -5,6 +5,7 @@ import 'package:tcc/app/domain/entities/evento_padrao.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:tcc/app/domain/services/auth_service.dart';
 import 'package:tcc/app/view/bar/bloc.navigation_bloc/navigation_bloc.dart';
 import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_form.dart';
 import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_list_back.dart';
@@ -80,6 +81,7 @@ class EventoPadraoList extends StatelessWidget with NavigationStates {
                   return CircularProgressIndicator();
                 } else {
                   List<EventoPadrao> lista = futuro.data;
+                  lista.removeWhere((e) => e.uid != AuthService.getUser().uid);
 
                   return ListView.builder(
                     itemCount: lista.length,

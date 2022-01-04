@@ -1,13 +1,39 @@
 //@dart=2.9
 
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, deprecated_member_use, camel_case_types
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, deprecated_member_use, camel_case_types, unnecessary_this, prefer_typing_uninitialized_variables, avoid_init_to_null
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+
+import 'package:tcc/app/domain/entities/evento_padrao.dart';
+import 'package:tcc/app/domain/services/auth_service.dart';
 import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_form_back.dart';
 
-class EventoPadraoForm extends StatelessWidget {
+class EventoPadraoForm extends StatefulWidget {
+  @override
+  State<EventoPadraoForm> createState() => _EventoPadraoFormState();
+}
+
+class _EventoPadraoFormState extends State<EventoPadraoForm> {
   final _form = GlobalKey<FormState>();
+  var user = FirebaseAuth.instance.currentUser;
+
+  User loggedInUser = null;
+  EventoPadrao event = EventoPadrao();
+
+  @override
+  void initState() {
+    super.initState();
+    try {
+      this.loggedInUser = AuthService.getUser();
+
+      setState(() {});
+    } catch (e) {
+      // ignore: avoid_print
+      print(e);
+    }
+  }
 
   Widget fieldNome(EventoPadraoFormBack back) {
     return TextFormField(
@@ -92,6 +118,7 @@ class EventoPadraoForm extends StatelessWidget {
                   onPressed: () {
                     _form.currentState.validate();
                     _form.currentState.save();
+
                     if (_back.isValid) {
                       _back.save();
                       Navigator.of(context).pop();

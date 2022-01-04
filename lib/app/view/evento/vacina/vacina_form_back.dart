@@ -2,6 +2,7 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 
 import 'package:tcc/app/domain/entities/vacina.dart';
+import 'package:tcc/app/domain/services/auth_service.dart';
 import 'package:tcc/app/domain/services/vacina_service.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -32,6 +33,7 @@ class VacinaFormBack {
             intervalo_doses: '',
             quant_doses: '',
             identificacao: '',
+            uid: AuthService.getUser().uid,
             id: null,
           )
         : parameter;

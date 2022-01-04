@@ -2,6 +2,7 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 
 import 'package:tcc/app/domain/entities/ciclo.dart';
+import 'package:tcc/app/domain/services/auth_service.dart';
 import 'package:tcc/app/domain/services/ciclo_service.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -32,6 +33,7 @@ class CicloFormBack {
             ultima_cria: '',
             dia_cio: '',
             dia_cria: '',
+            uid: AuthService.getUser().uid,
             id: null,
           )
         : parameter;

@@ -6,11 +6,27 @@ class EventoPadrao {
   String nome;
   String observacao;
   String data;
+  String uid;
 
   EventoPadrao({
     this.id,
     this.nome,
     this.observacao,
     this.data,
+    this.uid,
   });
+
+  factory EventoPadrao.fromMap(map) {
+    return EventoPadrao(
+      uid: map['uid'],
+      nome: map['nome'],
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'uid': uid,
+      'nome': nome,
+    };
+  }
 }

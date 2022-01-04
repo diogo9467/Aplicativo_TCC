@@ -1,13 +1,39 @@
 //@dart=2.9
 
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, deprecated_member_use, camel_case_types
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, deprecated_member_use, camel_case_types, unnecessary_this, avoid_init_to_null
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:tcc/app/domain/entities/evento_padrao.dart';
+import 'package:tcc/app/domain/services/auth_service.dart';
 import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_form_back.dart';
 
-class CicloForm extends StatelessWidget {
+class CicloForm extends StatefulWidget {
+  @override
+  State<CicloForm> createState() => _CicloFormState();
+}
+
+class _CicloFormState extends State<CicloForm> {
   final _form = GlobalKey<FormState>();
+
+  var user = FirebaseAuth.instance.currentUser;
+
+  User loggedInUser = null;
+  EventoPadrao event = EventoPadrao();
+
+  @override
+  void initState() {
+    super.initState();
+    try {
+      this.loggedInUser = AuthService.getUser();
+
+      setState(() {});
+    } catch (e) {
+      // ignore: avoid_print
+      print(e);
+    }
+  }
 
   Widget fieldIdentificacao(CicloFormBack back) {
     return TextFormField(

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_final_fields, prefer_null_aware_operators
+// ignore_for_file: prefer_final_fields, prefer_null_aware_operators, avoid_init_to_null
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -8,26 +8,43 @@ class AuthException implements Exception {
   AuthException(this.message);
 }
 
+AuthService? _global;
+
 class AuthService extends ChangeNotifier {
   FirebaseAuth _auth = FirebaseAuth.instance;
-  User? usuario;
+  User? usuario = null;
   bool isLoading = true;
 
-  AuthService() {
+  AuthService._() {
     _authCheck();
+  }
+
+  static AuthService getglobal() {
+    if (_global != null) {
+      return _global!;
+    }
+    return _global = AuthService._();
   }
 
   _authCheck() {
     _auth.authStateChanges().listen((User? user) {
-      usuario = (user == null) ? null : user;
+      usuario = user;
       isLoading = false;
       notifyListeners();
     });
   }
 
   _getUser() {
+    if (usuario != null) {
+      return usuario;
+    }
     usuario = _auth.currentUser;
     notifyListeners();
+    return usuario;
+  }
+
+  static User getUser() {
+    return AuthService.getglobal()._getUser();
   }
 
   registrar(String email, String senha) async {

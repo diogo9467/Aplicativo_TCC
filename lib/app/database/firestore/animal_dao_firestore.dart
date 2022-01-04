@@ -21,7 +21,8 @@ class AnimalDAOFirestore implements AnimalDAO {
             sexo: doc['sexo'],
             data_nascimento: doc['data_nascimento'],
             data_aquisicao: doc['data_aquisicao'],
-            inicio_lactacao: doc['inicio_lactacao']))
+            inicio_lactacao: doc['inicio_lactacao'],
+            uid: doc['uid']))
         .toList();
   }
 
@@ -39,6 +40,7 @@ class AnimalDAOFirestore implements AnimalDAO {
       'data_nascimento': animal.data_nascimento,
       'data_aquisicao': animal.data_aquisicao,
       'inicio_lactacao': animal.inicio_lactacao,
+      'uid': animal.uid,
     });
   }
 }

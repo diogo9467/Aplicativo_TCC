@@ -10,14 +10,17 @@ class Animal {
   String data_nascimento;
   String data_aquisicao;
   String inicio_lactacao;
+  String uid;
 
-  Animal(
-      {this.id,
-      this.identificacao,
-      this.sexo,
-      this.raca,
-      this.urlAvatar,
-      this.data_nascimento,
-      this.data_aquisicao,
-      this.inicio_lactacao});
+  Animal({
+    this.id,
+    this.identificacao,
+    this.sexo,
+    this.raca,
+    this.urlAvatar,
+    this.data_nascimento,
+    this.data_aquisicao,
+    this.inicio_lactacao,
+    this.uid,
+  });
 }

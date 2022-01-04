@@ -1,23 +1,22 @@
-/*//@dart=2.9
+//@dart=2.9
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
-
-import 'package:tcc/app/domain/entities/users.dart';
-import 'package:tcc/app/domain/services/user_service.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
+import 'package:tcc/app/domain/entities/users.dart';
+import 'package:tcc/app/domain/services/users_service.dart';
 
 class UserFormBack {
-  User user;
-  var _service = GetIt.I.get<UserService>();
-  bool _nomeIsValid;
+  Users user;
+  var _service = GetIt.I.get<UsersService>();
+  bool _firstnameIsValid;
 
-  bool get isValid => _nomeIsValid;
+  bool get isValid => _firstnameIsValid;
 
   UserFormBack(BuildContext context) {
     var parameter = ModalRoute.of(context).settings.arguments;
     user = (parameter == null)
-        ? User(
+        ? Users(
             firstName: '',
             id: null,
           )
@@ -28,17 +27,16 @@ class UserFormBack {
     await _service.save(user);
   }
 
-  String validateNome(String nome) {
+  String validateNome(String firstname) {
     try {
-      _service.validateNome(nome);
-      _nomeIsValid = true;
+      _service.validatefirstName(firstname);
+      _firstnameIsValid = true;
       return null;
     } catch (e) {
-      _nomeIsValid = false;
+      _firstnameIsValid = false;
       return e.toString();
     }
   }
 
   void goToBack() {}
 }
-*/

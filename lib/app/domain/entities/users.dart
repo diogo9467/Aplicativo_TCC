@@ -8,11 +8,5 @@ class Users {
   String email;
   String uid;
 
-  Users({
-    this.id,
-    this.firstName,
-    this.secondName,
-    this.email,
-    this.uid,
-  });
+  Users({this.id, this.firstName, this.secondName, this.email, this.uid});
 }

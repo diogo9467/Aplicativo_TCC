@@ -1,6 +1,7 @@
 //@dart=2.9
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use
 import 'package:tcc/app/domain/entities/animal.dart';
+import 'package:tcc/app/domain/services/auth_service.dart';
 import 'package:tcc/app/view/animals/animal_list_back.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -84,6 +85,7 @@ class AnimalList extends StatelessWidget with NavigationStates {
                   return CircularProgressIndicator();
                 } else {
                   List<Animal> lista = futuro.data;
+                  lista.removeWhere((e) => e.uid != AuthService.getUser().uid);
 
                   return ListView.builder(
                     itemCount: lista.length,

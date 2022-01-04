@@ -8,6 +8,7 @@ class Ciclo {
   String identificacao;
   String dia_cio;
   String dia_cria;
+  String uid;
 
   Ciclo({
     this.id,
@@ -16,5 +17,6 @@ class Ciclo {
     this.identificacao,
     this.dia_cio,
     this.dia_cria,
+    this.uid,
   });
 }

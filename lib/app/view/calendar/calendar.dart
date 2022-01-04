@@ -3,7 +3,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:tcc/app/view/bar/bloc.navigation_bloc/navigation_bloc.dart';
-import 'package:tcc/app/view/evento/event_form.dart';
 
 class Calendar extends StatelessWidget with NavigationStates {
   @override
@@ -22,19 +21,6 @@ class Calendar extends StatelessWidget with NavigationStates {
         ),
         body: SingleChildScrollView(),
         floatingActionButton:
-            Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-          FloatingActionButton(
-            child: CircleAvatar(
-                radius: 35,
-                backgroundColor: Colors.white,
-                backgroundImage: NetworkImage(
-                    'https://static.vecteezy.com/ti/vetor-gratis/p1/582034-ilustracao-em-icone-calendario-gr%C3%A1tis-vetor.jpg')),
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Event_form()));
-            },
-            heroTag: null,
-          )
-        ]));
+            Column(mainAxisAlignment: MainAxisAlignment.end, children: []));
   }
 }
