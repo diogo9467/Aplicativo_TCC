@@ -151,7 +151,7 @@ class _AnimalFormState extends State<AnimalForm> {
         centerTitle: true,
         backgroundColor: Colors.white,
         title: Text(
-          'Cadastro de Animal',
+          'Animal',
           style: TextStyle(color: Colors.green),
         ),
       ),
@@ -184,7 +184,7 @@ class _AnimalFormState extends State<AnimalForm> {
                     }
                   },
                   child: Text(
-                    'Confirmar cadastro',
+                    'Confirmar',
                     style: TextStyle(color: Colors.white, fontSize: 22),
                   )),
             ],

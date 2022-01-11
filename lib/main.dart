@@ -11,6 +11,7 @@ import 'app/my_app.dart';
 
 void main() async {
   await setupInjection();
+
   runApp(
     MultiProvider(
       providers: [

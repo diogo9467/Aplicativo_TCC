@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:tcc/app/view/bar/sidebar/sidebar_layout.dart';
+import 'package:tcc/app/view/sidebar/sidebar/sidebar_layout.dart';
 
 import 'package:tcc/app/view/login/user_model.dart';
 
@@ -68,7 +68,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         keyboardType: TextInputType.name,
         validator: (value) {
           if (value!.isEmpty) {
-            return ("Second Name cannot be Empty");
+            return ("Segundo nome é obrigatório");
           }
           return null;
         },

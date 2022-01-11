@@ -97,7 +97,7 @@ class _EventoPadraoFormState extends State<EventoPadraoForm> {
         centerTitle: true,
         backgroundColor: Colors.white,
         title: Text(
-          'Cadastro de evento padrão',
+          'Evento padrão',
           style: TextStyle(color: Colors.green),
         ),
       ),
@@ -125,7 +125,7 @@ class _EventoPadraoFormState extends State<EventoPadraoForm> {
                     }
                   },
                   child: Text(
-                    'Confirmar cadastro',
+                    'Confirmar',
                     style: TextStyle(color: Colors.white, fontSize: 22),
                   )),
             ],

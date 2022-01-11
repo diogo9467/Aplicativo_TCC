@@ -2,7 +2,7 @@
 // ignore_for_file: constant_identifier_names, use_key_in_widget_constructors, prefer_const_constructors
 
 import 'package:tcc/app/view/bar/sidebar/sidebar_layout.dart';
-import 'package:tcc/app/view/calendar/calendar.dart';
+
 import 'package:tcc/app/view/animals/animal_details.dart';
 import 'package:tcc/app/view/animals/animal_form.dart';
 import 'package:tcc/app/view/animals/animal_list.dart';
@@ -41,7 +41,6 @@ class MyApp extends StatelessWidget {
       ),
       home: SideBarLayout(),
       routes: {
-        CALENDAR: (context) => Calendar(),
         ANIMAL_LIST: (context) => AnimalList(),
         ANIMAL_FORM: (context) => AnimalForm(),
         ANIMAL_DETAILS: (context) => AnimalDetails(),
@@ -51,7 +50,6 @@ class MyApp extends StatelessWidget {
         EVENTO_PADRAO_DETAILS: (context) => EventoPadraoDetails(),
         CICLO_DETAILS: (context) => CicloDetails(),
         CICLO_FORM: (context) => CicloForm(),
-        //       USER_FORM: (context) => UserForm()
       },
     );
   }

@@ -35,6 +35,13 @@ class _VacinaFormState extends State<VacinaForm> {
     }
   }
 
+  void refreshData() {}
+
+  void onGoBack(dynamic value) {
+    refreshData();
+    setState(() {});
+  }
+
   Widget fieldNome(VacinaFormBack back) {
     return TextFormField(
         validator: back.validateNome,
@@ -131,7 +138,7 @@ class _VacinaFormState extends State<VacinaForm> {
         centerTitle: true,
         backgroundColor: Colors.white,
         title: Text(
-          'Cadastro de vacina',
+          'Vacina',
           style: TextStyle(color: Colors.green),
         ),
       ),
@@ -164,7 +171,7 @@ class _VacinaFormState extends State<VacinaForm> {
                     }
                   },
                   child: Text(
-                    'Confirmar cadastro',
+                    'Confirmar',
                     style: TextStyle(color: Colors.white, fontSize: 22),
                   )),
             ],

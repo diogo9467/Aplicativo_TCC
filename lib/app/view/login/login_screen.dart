@@ -167,7 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       builder: (context) => ResetPage()));
                             },
                             child: Text(
-                              'Resetar senha',
+                              'Alterar a senha',
                               style: TextStyle(
                                   color: Colors.green,
                                   fontWeight: FontWeight.bold,

@@ -90,7 +90,7 @@ class AnimalList extends StatelessWidget with NavigationStates {
                   return ListView.builder(
                     itemCount: lista.length,
                     itemBuilder: (context, i) {
-                      var contato = lista[i];
+                      var animal = lista[i];
                       return Container(
                           margin: const EdgeInsets.all(8),
                           padding: const EdgeInsets.all(3.0),
@@ -99,20 +99,20 @@ class AnimalList extends StatelessWidget with NavigationStates {
                               border:
                                   Border.all(color: Colors.black, width: 1.3)),
                           child: ListTile(
-                            leading: circleAvatar(contato.urlAvatar),
-                            title: Text(contato.identificacao),
+                            leading: circleAvatar(animal.urlAvatar),
+                            title: Text(animal.identificacao),
                             onTap: () {
-                              _back.goToDetails(context, contato);
+                              _back.goToDetails(context, animal);
                             },
                             trailing: Container(
                               width: 100,
                               child: Row(
                                 children: [
                                   iconEditButton(() {
-                                    _back.goToForm(context, contato);
+                                    _back.goToForm(context, animal);
                                   }),
                                   iconRemoveButton(context, () {
-                                    _back.remove(contato.id);
+                                    _back.remove(animal.id);
                                     Navigator.of(context).pop();
                                   })
                                 ],

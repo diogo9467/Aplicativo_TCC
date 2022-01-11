@@ -8,13 +8,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:tcc/app/view/bar/bloc.navigation_bloc/navigation_bloc.dart';
+import 'package:tcc/app/view/bar/sidebar/menu_item.dart';
 
 import 'package:tcc/app/view/home/home_screen.dart';
 
 import 'package:tcc/app/view/login/user_model.dart';
-
-import '../bloc.navigation_bloc/navigation_bloc.dart';
-import '../sidebar/menu_item.dart';
 
 class SideBar extends StatefulWidget {
   const SideBar({Key key}) : super(key: key);

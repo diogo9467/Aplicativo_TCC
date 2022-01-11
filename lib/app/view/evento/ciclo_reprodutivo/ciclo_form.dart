@@ -138,7 +138,7 @@ class _CicloFormState extends State<CicloForm> {
         centerTitle: true,
         backgroundColor: Colors.white,
         title: Text(
-          'Cadastro de ciclos reprodutivos',
+          'Ciclo reprodutivo',
           style: TextStyle(color: Colors.green),
         ),
       ),
@@ -199,7 +199,7 @@ class _CicloFormState extends State<CicloForm> {
                     }
                   },
                   child: Text(
-                    'Confirmar cadastro',
+                    'Confirmar',
                     style: TextStyle(color: Colors.white, fontSize: 22),
                   )),
             ],

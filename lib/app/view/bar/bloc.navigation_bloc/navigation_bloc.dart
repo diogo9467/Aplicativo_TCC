@@ -4,7 +4,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:tcc/app/view/animals/animal_list.dart';
-import 'package:tcc/app/view/calendar/calendar.dart';
+
 import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_list.dart';
 import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_list.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_list.dart';
@@ -17,7 +17,6 @@ enum NavigationEvents {
   VacinaListClickedEvent,
   CicloListClickedEvent,
   EventoPadraoClickedEvent,
-  CalendarClickedEvent,
 }
 
 abstract class NavigationStates {}
@@ -44,9 +43,6 @@ class NavigationBloc extends Bloc<NavigationEvents, NavigationStates> {
         break;
       case NavigationEvents.CicloListClickedEvent:
         yield CicloList();
-        break;
-      case NavigationEvents.CalendarClickedEvent:
-        yield Calendar();
         break;
     }
   }
