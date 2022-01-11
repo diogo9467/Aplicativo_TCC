@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, deprecated_member_use, camel_case_types, unused_import, missing_required_param
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, deprecated_member_use, camel_case_types, unused_import, missing_required_param, import_of_legacy_library_into_null_safe
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -16,16 +16,8 @@ class UserForm extends StatefulWidget {
 }
 
 class _UserFormState extends State<UserForm> {
-  /*@override
-  void initState() {
-    super.initState();
-
-    var collection = FirebaseFirestore.instance.collection('users');
-    collection.doc(AuthService.getUser().uid).update(
-        {'firstName': 'c'}).catchError((error) => print('Failed: $error'));
-    collection.doc(AuthService.getUser().uid).update(
-        {'secondName': 'e'}).catchError((error) => print('Failed: $error'));
-  }*/
+  late String firstName;
+  late String secondName;
 
   void refreshData() {}
 
@@ -36,28 +28,30 @@ class _UserFormState extends State<UserForm> {
 
   Widget fieldfirstName() {
     return TextFormField(
+        onChanged: (value) => firstName = value,
         decoration: InputDecoration(
-      focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.black, width: 0.5),
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.black, width: 0.5),
-      ),
-      hintText: 'Primeiro Nome',
-    ));
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          hintText: 'Primeiro Nome',
+        ));
   }
 
   Widget fieldsecondName() {
     return TextFormField(
+        onChanged: (value) => secondName = value,
         decoration: InputDecoration(
-      focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.black, width: 0.5),
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.black, width: 0.5),
-      ),
-      hintText: 'Segundo Nome',
-    ));
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          hintText: 'Segundo Nome',
+        ));
   }
 
   @override
@@ -85,6 +79,16 @@ class _UserFormState extends State<UserForm> {
             FlatButton(
                 color: Colors.green,
                 onPressed: () {
+                  var collection =
+                      FirebaseFirestore.instance.collection('users');
+                  collection
+                      .doc(AuthService.getUser().uid)
+                      .update({'firstName': firstName}).catchError(
+                          (error) => print('Failed: $error'));
+                  collection
+                      .doc(AuthService.getUser().uid)
+                      .update({'secondName': secondName}).catchError(
+                          (error) => print('Failed: $error'));
                   Navigator.of(context).pop();
                 },
                 child: Text(
