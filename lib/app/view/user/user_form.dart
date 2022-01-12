@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, deprecated_member_use, camel_case_types, unused_import, missing_required_param, import_of_legacy_library_into_null_safe
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, deprecated_member_use, camel_case_types, unused_import, missing_required_param, import_of_legacy_library_into_null_safe, avoid_print
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -19,10 +19,7 @@ class _UserFormState extends State<UserForm> {
   late String firstName;
   late String secondName;
 
-  void refreshData() {}
-
   void onGoBack(dynamic value) {
-    refreshData();
     setState(() {});
   }
 

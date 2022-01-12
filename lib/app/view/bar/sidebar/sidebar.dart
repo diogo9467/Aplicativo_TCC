@@ -116,13 +116,6 @@ class _SideBarState extends State<SideBar>
                             fontSize: 18,
                           ),
                         ),
-                        /*leading: CircleAvatar(
-                          child: Icon(
-                            Icons.perm_identity,
-                            color: Colors.white,
-                          ),
-                          radius: 40,
-                        ),*/
                       ),
                       Divider(
                         height: 64,

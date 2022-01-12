@@ -16,11 +16,9 @@ class CicloListBack = _CicloListBack with _$CicloListBack;
 abstract class _CicloListBack with Store {
   var _service = GetIt.I.get<CicloService>();
 
-  //lista de contatos
   @observable
   Future<List<Ciclo>> list;
 
-  //método para atualizar a lista de contatos
   @action
   refreshList([dynamic value]) {
     list = _service.find();
@@ -30,7 +28,6 @@ abstract class _CicloListBack with Store {
     refreshList();
   }
 
-  //método para chamar o form salvar/alterar
   goToForm(BuildContext context, [Ciclo ciclo]) {
     Navigator.of(context)
         .pushNamed(MyApp.CICLO_FORM, arguments: ciclo)
@@ -41,7 +38,6 @@ abstract class _CicloListBack with Store {
     Navigator.of(context).pushNamed(MyApp.CICLO_DETAILS, arguments: ciclo);
   }
 
-  //excluir
   remove(dynamic id) {
     _service.remove(id);
     refreshList();
