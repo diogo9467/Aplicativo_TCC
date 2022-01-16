@@ -47,7 +47,7 @@ class _EventoPadraoFormState extends State<EventoPadraoForm> {
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
           ),
-          hintText: 'Nome',
+          hintText: 'Nome do evento',
         ));
   }
 
@@ -86,6 +86,22 @@ class _EventoPadraoFormState extends State<EventoPadraoForm> {
         ));
   }
 
+  Widget fieldAnimal(EventoPadraoFormBack back) {
+    return TextFormField(
+        validator: back.validateAnimal,
+        onSaved: (newValue) => back.eventopadrao.animal = newValue,
+        initialValue: back.eventopadrao.animal,
+        decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          hintText: 'Coloque um animal caso queira:',
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     var _back = EventoPadraoFormBack(context);
@@ -112,6 +128,8 @@ class _EventoPadraoFormState extends State<EventoPadraoForm> {
               fieldData(_back),
               SizedBox(height: 25),
               fieldObservacao(_back),
+              SizedBox(height: 25),
+              fieldAnimal(_back),
               SizedBox(height: 25),
               FlatButton(
                   color: Colors.green,

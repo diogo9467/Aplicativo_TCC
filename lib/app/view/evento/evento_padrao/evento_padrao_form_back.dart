@@ -15,8 +15,10 @@ class EventoPadraoFormBack {
   bool _nomeIsValid;
   bool _observacaoIsValid;
   bool _dataIsValid;
+  bool _animalIsValid;
 
-  bool get isValid => _nomeIsValid && _observacaoIsValid && _dataIsValid;
+  bool get isValid =>
+      _nomeIsValid && _observacaoIsValid && _dataIsValid && _animalIsValid;
 
   EventoPadraoFormBack(BuildContext context) {
     var parameter = ModalRoute.of(context).settings.arguments;
@@ -25,6 +27,7 @@ class EventoPadraoFormBack {
             nome: '',
             data: '',
             observacao: '',
+            animal: '',
             uid: AuthService.getUser().uid,
             id: null,
           )
@@ -64,6 +67,17 @@ class EventoPadraoFormBack {
       return null;
     } catch (e) {
       _observacaoIsValid = false;
+      return e.toString();
+    }
+  }
+
+  String validateAnimal(String animal) {
+    try {
+      _service.validateAnimal(animal);
+      _animalIsValid = true;
+      return null;
+    } catch (e) {
+      _animalIsValid = false;
       return e.toString();
     }
   }

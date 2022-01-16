@@ -40,6 +40,17 @@ class EventoPadraoDetails extends StatelessWidget {
                   style: TextStyle(fontSize: 30),
                 ),
               ),
+              if ('${evento_padrao.animal}' != "")
+                Card(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: ListTile(
+                    title: Text('Animal'),
+                    subtitle: Text('${evento_padrao.animal}'),
+                  ),
+                ),
               Card(
                 shape: RoundedRectangleBorder(
                   side: BorderSide(color: Colors.black, width: 1),

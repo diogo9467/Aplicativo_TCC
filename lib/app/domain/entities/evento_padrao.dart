@@ -7,6 +7,7 @@ class EventoPadrao {
   String observacao;
   String data;
   String uid;
+  String animal;
 
   EventoPadrao({
     this.id,
@@ -14,19 +15,6 @@ class EventoPadrao {
     this.observacao,
     this.data,
     this.uid,
+    this.animal,
   });
-
-  factory EventoPadrao.fromMap(map) {
-    return EventoPadrao(
-      uid: map['uid'],
-      nome: map['nome'],
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'uid': uid,
-      'nome': nome,
-    };
-  }
 }

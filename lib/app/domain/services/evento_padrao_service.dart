@@ -13,6 +13,7 @@ class EventoPadraoService {
     validateNome(eventopadrao.nome);
     validateObservacao(eventopadrao.observacao);
     validateData(eventopadrao.data);
+    validateAnimal(eventopadrao.animal);
 
     _dao.save(eventopadrao);
   }
@@ -36,6 +37,8 @@ class EventoPadraoService {
       throw DomainLayerException('A data é obrigatória.');
     }
   }
+
+  validateAnimal(String animal) {}
 
   validateObservacao(String observacao) {}
 }

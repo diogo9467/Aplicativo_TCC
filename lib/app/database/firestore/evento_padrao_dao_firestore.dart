@@ -24,6 +24,7 @@ class EventoPadraoDAOFirestore implements EventoPadraoDAO {
               nome: doc['nome'],
               observacao: doc['observacao'],
               uid: doc['uid'],
+              animal: doc['animal'],
             ))
         .toList();
   }
@@ -40,6 +41,7 @@ class EventoPadraoDAOFirestore implements EventoPadraoDAO {
       'nome': eventopadrao.nome,
       'observacao': eventopadrao.observacao,
       'uid': eventopadrao.uid,
+      'animal': eventopadrao.animal,
     });
   }
 }

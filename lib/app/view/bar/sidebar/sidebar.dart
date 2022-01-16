@@ -141,7 +141,7 @@ class _SideBarState extends State<SideBar>
                         },
                       ),
                       MenuItem(
-                        title: "Eventos padroes",
+                        title: "Eventos padrões",
                         onTap: () {
                           onIconPressed();
                           BlocProvider.of<NavigationBloc>(context)
@@ -165,7 +165,7 @@ class _SideBarState extends State<SideBar>
                         },
                       ),
                       Divider(
-                        height: 64,
+                        height: 50,
                         thickness: 0.5,
                         color: Colors.white.withOpacity(0.3),
                         indent: 32,
