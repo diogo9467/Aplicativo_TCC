@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:tcc/app/domain/services/auth_service.dart';
+import 'package:tcc/app/view/bar/sidebar/sidebar.dart';
 import 'package:tcc/app/view/home/home_screen.dart';
+import 'package:tcc/app/view/sidebar/sidebar/sidebar_layout.dart';
 
 class UserForm extends StatefulWidget {
   const UserForm({Key? key}) : super(key: key);
@@ -86,7 +88,12 @@ class _UserFormState extends State<UserForm> {
                       .doc(AuthService.getUser().uid)
                       .update({'secondName': secondName}).catchError(
                           (error) => print('Failed: $error'));
-                  Navigator.of(context).pop();
+
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => SideBarLayout()),
+                    (Route<dynamic> route) => false,
+                  );
                 },
                 child: Text(
                   'Confirmar modificação',

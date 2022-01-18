@@ -17,14 +17,28 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  //toggle da visibilidade da senha
+  bool _isHidePassword = true;
+  bool _isHidePasswordConfirm = true;
+  _toggleHidePassword() {
+    setState(() {
+      _isHidePassword = !_isHidePassword;
+    });
+  }
+
+  _toggleHidePasswordConfirm() {
+    setState(() {
+      _isHidePasswordConfirm = !_isHidePasswordConfirm;
+    });
+  }
+
   final _auth = FirebaseAuth.instance;
 
-  // string for displaying the error Message
+  // String para mostrar a mensagem de erro
   String? errorMessage;
 
-  // our form key
   final _formKey = GlobalKey<FormState>();
-  // editing Controller
+
   final firstNameEditingController = TextEditingController();
   final secondNameEditingController = TextEditingController();
   final emailEditingController = TextEditingController();
@@ -33,7 +47,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    //first name field
+    //Campo do primeiro nome
     final firstNameField = TextFormField(
         autofocus: false,
         controller: firstNameEditingController,
@@ -61,7 +75,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
         ));
 
-    //second name field
+    //Campo do segundo nome
     final secondNameField = TextFormField(
         autofocus: false,
         controller: secondNameEditingController,
@@ -85,7 +99,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
         ));
 
-    //email field
+    //Campo do email
     final emailField = TextFormField(
         autofocus: false,
         controller: emailEditingController,
@@ -94,7 +108,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           if (value!.isEmpty) {
             return ("Por favor coloque seu email");
           }
-          // reg expression for email validation
+          // Validação do email
           if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
               .hasMatch(value)) {
             return ("Por favor coloque um email válido");
@@ -114,7 +128,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
         ));
 
-    //password field
+    //Campo da senha
     final passwordField = TextFormField(
         autofocus: false,
         controller: passwordEditingController,
@@ -136,12 +150,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           prefixIcon: Icon(Icons.vpn_key),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Senha:",
+          suffixIcon: IconButton(
+            icon:
+                Icon(_isHidePassword ? Icons.visibility_off : Icons.visibility),
+            onPressed: () => _toggleHidePassword(),
+          ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
         ));
 
-    //confirm password field
+    //Campo de confirmação da senha
     final confirmPasswordField = TextFormField(
         autofocus: false,
         controller: confirmPasswordEditingController,
@@ -161,12 +180,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           prefixIcon: Icon(Icons.vpn_key),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Confirme sua senha",
+          suffixIcon: IconButton(
+            icon: Icon(_isHidePasswordConfirm
+                ? Icons.visibility_off
+                : Icons.visibility),
+            onPressed: () => _toggleHidePasswordConfirm(),
+          ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
         ));
 
-    //signup button
+    //Botão de cadastrar
     final signUpButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
@@ -260,6 +285,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     );
   }
 
+//Função de cadastro
   void signUp(String email, String password) async {
     if (_formKey.currentState!.validate()) {
       try {

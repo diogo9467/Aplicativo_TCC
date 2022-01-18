@@ -42,16 +42,6 @@ class _HomeScreenState extends State<HomePage> with NavigationStates {
         icon: Icon(Icons.edit), color: Colors.green, onPressed: onPressed);
   }
 
-  /*getDocumentData() async {
-    var collection = FirebaseFirestore.instance.collection('eventopadrao');
-    collection.snapshots().listen((querySnapshot) {
-      for (var doc in querySnapshot.docs) {
-        Map<String, dynamic> data = doc.data();
-        data['data'];
-      }
-    });
-  }*/
-
   Widget iconRemoveButton(BuildContext context, Function remove) {
     return IconButton(
         icon: Icon(Icons.delete),
@@ -285,7 +275,6 @@ class _HomeScreenState extends State<HomePage> with NavigationStates {
                       List<EventoPadrao> lista = futuro.data;
                       lista.removeWhere(
                           (e) => e.uid != AuthService.getUser().uid);
-                      //lista.removeWhere((e) => e.data != dat);
 
                       return ListView.builder(
                         scrollDirection: Axis.vertical,
@@ -452,7 +441,7 @@ class _HomeScreenState extends State<HomePage> with NavigationStates {
   }
 }
 
-// the logout function
+// Função de logout
 Future<void> logout(BuildContext context) async {
   await FirebaseAuth.instance.signOut();
   Navigator.of(context)

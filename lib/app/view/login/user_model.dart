@@ -11,7 +11,7 @@ class UserModel {
     this.secondName,
   });
 
-  // receiving data from server
+  // recebendo os dados
   factory UserModel.fromMap(map) {
     return UserModel(
       uid: map['uid'],
@@ -21,7 +21,7 @@ class UserModel {
     );
   }
 
-  // sending data to our server
+  // enviando os dados
   Map<String, dynamic> toMap() {
     return {
       'uid': uid,

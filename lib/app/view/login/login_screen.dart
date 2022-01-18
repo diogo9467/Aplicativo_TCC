@@ -16,22 +16,28 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  // form key
+  //toggle da visibilidade da senha
+  bool _isHidePassword = true;
+  _toggleHidePassword() {
+    setState(() {
+      _isHidePassword = !_isHidePassword;
+    });
+  }
+
   final _formKey = GlobalKey<FormState>();
 
-  // editing controller
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   // firebase
   final _auth = FirebaseAuth.instance;
 
-  // string for displaying the error Message
+  // String para mostrar a mensagem de erro
   String? errorMessage;
 
   @override
   Widget build(BuildContext context) {
-    //email field
+    //Campo do email
     final emailField = TextFormField(
         autofocus: false,
         controller: emailController,
@@ -60,18 +66,18 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ));
 
-    //password field
+    //Campo da senha
     final passwordField = TextFormField(
         autofocus: false,
         controller: passwordController,
-        obscureText: true,
+        obscureText: _isHidePassword,
         validator: (value) {
           RegExp regex = RegExp(r'^.{6,}$');
           if (value!.isEmpty) {
             return ("A senha é necessária para o login");
           }
           if (!regex.hasMatch(value)) {
-            return ("A senha possio no mínimo 6 caracteres");
+            return ("A deve possuir no mínimo 6 caracteres");
           }
         },
         onSaved: (value) {
@@ -82,6 +88,11 @@ class _LoginScreenState extends State<LoginScreen> {
           prefixIcon: Icon(Icons.vpn_key),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Senha:",
+          suffixIcon: IconButton(
+            icon:
+                Icon(_isHidePassword ? Icons.visibility_off : Icons.visibility),
+            onPressed: () => _toggleHidePassword(),
+          ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -104,6 +115,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
           )),
     );
+
+    /*Get.snackbar(
+                                'Loading...',
+                                'Please wait.',
+                                backgroundColor: Colors.black,
+                                colorText: Colors.white,
+                                showProgressIndicator: true,
+                              );*/
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -185,40 +204,41 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // login function
+  //Função de login
   void signIn(String email, String password) async {
     if (_formKey.currentState!.validate()) {
       try {
         await _auth
             .signInWithEmailAndPassword(email: email, password: password)
             .then((uid) => {
-                  Fluttertoast.showToast(msg: "Login Successful"),
+                  Fluttertoast.showToast(msg: "Login bem sucessido"),
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => SideBarLayout())),
                 });
       } on FirebaseAuthException catch (error) {
         switch (error.code) {
           case "invalid-email":
-            errorMessage = "Your email address appears to be malformed.";
+            errorMessage = "Seu email está mal formulado";
 
             break;
           case "wrong-password":
-            errorMessage = "Your password is wrong.";
+            errorMessage = "Senha incorreta";
             break;
           case "user-not-found":
-            errorMessage = "User with this email doesn't exist.";
+            errorMessage = "Email não existe";
             break;
           case "user-disabled":
-            errorMessage = "User with this email has been disabled.";
+            errorMessage = "Esse email foi desativado";
             break;
           case "too-many-requests":
-            errorMessage = "Too many requests";
+            errorMessage =
+                "Você realizou muitas tentativas, espere-se e tente novamente";
             break;
           case "operation-not-allowed":
-            errorMessage = "Signing in with Email and Password is not enabled.";
+            errorMessage = "Operação não permitida";
             break;
           default:
-            errorMessage = "An undefined Error happened.";
+            errorMessage = "Um erro inesperado aconteceu";
         }
         Fluttertoast.showToast(msg: errorMessage!);
         print(error.code);

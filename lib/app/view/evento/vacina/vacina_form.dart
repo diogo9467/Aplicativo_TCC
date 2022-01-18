@@ -165,6 +165,7 @@ class _VacinaFormState extends State<VacinaForm> {
                   onPressed: () {
                     _form.currentState.validate();
                     _form.currentState.save();
+
                     if (_back.isValid) {
                       _back.save();
                       Navigator.of(context).pop();
