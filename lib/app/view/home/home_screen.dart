@@ -12,7 +12,6 @@ import 'package:tcc/app/domain/entities/vacina.dart';
 import 'package:tcc/app/domain/services/auth_service.dart';
 import 'package:tcc/app/view/animals/animal_list.dart';
 import 'package:tcc/app/view/bar/bloc.navigation_bloc/navigation_bloc.dart';
-
 import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_list.dart';
 import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_list_back.dart';
 import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_list.dart';

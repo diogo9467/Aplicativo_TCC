@@ -1,5 +1,4 @@
-//@dart=2.9
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, import_of_legacy_library_into_null_safe
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,7 +7,7 @@ import 'package:tcc/app/view/bar/bloc.navigation_bloc/navigation_bloc.dart';
 import 'sidebar.dart';
 
 class SideBarLayout extends StatelessWidget {
-  const SideBarLayout({Key key}) : super(key: key);
+  const SideBarLayout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

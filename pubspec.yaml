@@ -46,6 +46,7 @@ dependencies:
   image_picker:
   google_sign_in: 
   timezone:
+  shared_preferences: 
   
  
 

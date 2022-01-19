@@ -1,13 +1,14 @@
 //@dart=2.9
 // ignore_for_file: prefer_final_fields
 
+import 'package:flutter/material.dart';
 import 'package:tcc/app/domain/entities/animal.dart';
 import 'package:tcc/app/domain/services/animal_service.dart';
 
-import 'package:tcc/app/my_app.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
+import 'package:tcc/app/view/animals/animal_details.dart';
+import 'package:tcc/app/view/animals/animal_form.dart';
 
 part 'animal_list_back.g.dart';
 
@@ -29,13 +30,19 @@ abstract class _AnimalListBack with Store {
   }
 
   goToForm(BuildContext context, [Animal animal]) {
-    Navigator.of(context)
-        .pushNamed(MyApp.ANIMAL_FORM, arguments: animal)
-        .then(refreshList);
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => AnimalForm()),
+      (Route<dynamic> route) => false,
+    );
   }
 
   goToDetails(BuildContext context, Animal animal) {
-    Navigator.of(context).pushNamed(MyApp.ANIMAL_DETAILS, arguments: animal);
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => AnimalDetails()),
+      (Route<dynamic> route) => false,
+    );
   }
 
   remove(dynamic id) {

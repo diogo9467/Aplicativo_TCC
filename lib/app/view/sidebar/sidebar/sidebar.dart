@@ -98,7 +98,7 @@ class _SideBarState extends State<SideBar>
                   child: Column(
                     children: <Widget>[
                       SizedBox(
-                        height: 100,
+                        height: 50,
                       ),
                       ListTile(
                         title: Text(
@@ -108,23 +108,9 @@ class _SideBarState extends State<SideBar>
                               fontSize: 30,
                               fontWeight: FontWeight.w800),
                         ),
-                        subtitle: Text(
-                          "",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                          ),
-                        ),
-                        /*leading: CircleAvatar(
-                          child: Icon(
-                            Icons.perm_identity,
-                            color: Colors.white,
-                          ),
-                          radius: 40,
-                        ),*/
                       ),
                       Divider(
-                        height: 64,
+                        height: 60,
                         thickness: 0.5,
                         color: Colors.white.withOpacity(0.3),
                         indent: 32,
@@ -171,7 +157,6 @@ class _SideBarState extends State<SideBar>
                         },
                       ),
                       Divider(
-                        height: 64,
                         thickness: 0.5,
                         color: Colors.white.withOpacity(0.3),
                         indent: 32,

@@ -1,13 +1,14 @@
 //@dart=2.9
 // ignore_for_file: prefer_final_fields
 
+import 'package:flutter/material.dart';
 import 'package:tcc/app/domain/entities/ciclo.dart';
 import 'package:tcc/app/domain/services/ciclo_service.dart';
 
-import 'package:tcc/app/my_app.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
+import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_details.dart';
+import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_form.dart';
 
 part 'ciclo_list_back.g.dart';
 
@@ -29,13 +30,19 @@ abstract class _CicloListBack with Store {
   }
 
   goToForm(BuildContext context, [Ciclo ciclo]) {
-    Navigator.of(context)
-        .pushNamed(MyApp.CICLO_FORM, arguments: ciclo)
-        .then(refreshList);
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => CicloForm()),
+      (Route<dynamic> route) => false,
+    );
   }
 
   goToDetails(BuildContext context, Ciclo ciclo) {
-    Navigator.of(context).pushNamed(MyApp.CICLO_DETAILS, arguments: ciclo);
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => CicloDetails()),
+      (Route<dynamic> route) => false,
+    );
   }
 
   remove(dynamic id) {

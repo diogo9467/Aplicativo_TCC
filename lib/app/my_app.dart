@@ -1,59 +1,52 @@
 //@dart=2.9
-// ignore_for_file: constant_identifier_names, use_key_in_widget_constructors, prefer_const_constructors
+// ignore_for_file: constant_identifier_names, use_key_in_widget_constructors, prefer_const_constructors, invalid_use_of_visible_for_testing_member
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tcc/app/view/bar/sidebar/sidebar_layout.dart';
-
-import 'package:tcc/app/view/animals/animal_details.dart';
-import 'package:tcc/app/view/animals/animal_form.dart';
-import 'package:tcc/app/view/animals/animal_list.dart';
 import 'package:flutter/material.dart';
-import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_details.dart';
-import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_form.dart';
 
-import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_details.dart';
-import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_form.dart';
-import 'package:tcc/app/view/evento/vacina/vacina_details.dart';
-import 'package:tcc/app/view/evento/vacina/vacina_form.dart';
-import 'package:tcc/app/view/evento/vacina/vacina_list.dart';
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
-class MyApp extends StatelessWidget {
-  static const HOME = 'home';
-  static const ANIMAL_FORM = 'animal-form';
-  static const ANIMAL_DETAILS = 'animal-details';
-  static const ANIMAL_LIST = 'animal-list';
-  static const CALENDAR = 'calendar';
-  static const EVENT_DAY = 'event_day';
-  static const EVENT_FORM = 'event_form';
-  static const VACCINE_FORM = 'vaccine_form';
-  static const VACINA_FORM = 'vacina_form';
-  static const VACINA_DETAILS = 'vacina_details';
-  static const EVENTO_PADRAO_FORM = 'evento_padrao_form';
-  static const EVENTO_PADRAO_DETAILS = 'evento_padrao_details';
-  static const CICLO_DETAILS = 'ciclo_details';
-  static const CICLO_FORM = 'ciclo_form';
-  static const USER_FORM = 'user_form';
-  static const VACINA_LIST = 'vacina_list';
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  SharedPreferences sharedPreferences;
+  bool isLogin = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _getInitData();
+  }
+
+  void _getInitData() async {
+    SharedPreferences.setMockInitialValues({});
+    sharedPreferences = await SharedPreferences.getInstance();
+    setState(() {
+      isLogin = sharedPreferences.getBool('isLogin') ?? false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'TCC',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SideBarLayout(),
-      routes: {
-        ANIMAL_LIST: (context) => AnimalList(),
-        ANIMAL_FORM: (context) => AnimalForm(),
-        ANIMAL_DETAILS: (context) => AnimalDetails(),
-        VACINA_FORM: (context) => VacinaForm(),
-        VACINA_LIST: (context) => VacinaList(),
-        VACINA_DETAILS: (context) => VacinaDetails(),
-        EVENTO_PADRAO_FORM: (context) => EventoPadraoForm(),
-        EVENTO_PADRAO_DETAILS: (context) => EventoPadraoDetails(),
-        CICLO_DETAILS: (context) => CicloDetails(),
-        CICLO_FORM: (context) => CicloForm(),
-      },
+      
+      home: isLogin ? SideBarLayout() : SideBarLayout(),
     );
   }
 }

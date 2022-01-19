@@ -118,7 +118,7 @@ class _SideBarState extends State<SideBar>
                         ),
                       ),
                       Divider(
-                        height: 64,
+                        height: 30,
                         thickness: 0.5,
                         color: Colors.white.withOpacity(0.3),
                         indent: 32,
@@ -200,7 +200,7 @@ class _SideBarState extends State<SideBar>
                         progress: _animationController.view,
                         icon: AnimatedIcons.menu_close,
                         color: Colors.white,
-                        size: 25,
+                        size: 27,
                       ),
                     ),
                   ),

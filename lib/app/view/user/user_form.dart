@@ -80,6 +80,7 @@ class _UserFormState extends State<UserForm> {
                 onPressed: () {
                   var collection =
                       FirebaseFirestore.instance.collection('users');
+
                   collection
                       .doc(AuthService.getUser().uid)
                       .update({'firstName': firstName}).catchError(
