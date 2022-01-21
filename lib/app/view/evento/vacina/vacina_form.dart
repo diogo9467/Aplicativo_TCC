@@ -74,6 +74,25 @@ class _VacinaFormState extends State<VacinaForm> {
         ));
   }
 
+  Widget fieldData(VacinaFormBack back) {
+    var mask = MaskTextInputFormatter(mask: '##/##/####');
+    return TextFormField(
+        validator: back.validateData_prox_aplic,
+        onSaved: (newValue) => back.vacina.data_prox_aplic = newValue,
+        initialValue: back.vacina.data_prox_aplic,
+        inputFormatters: [mask],
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          hintText: 'Data da aplicação',
+        ));
+  }
+
   Widget fieldUlt_aplicacao(VacinaFormBack back) {
     var mask = MaskTextInputFormatter(mask: '##/##/####');
     return TextFormField(
@@ -151,9 +170,9 @@ class _VacinaFormState extends State<VacinaForm> {
               fieldNome(_back),
               SizedBox(height: 25),
               fieldIdentificacao(_back),
-              SizedBox(
-                height: 25,
-              ),
+              SizedBox(height: 25),
+              fieldData(_back),
+              SizedBox(height: 25),
               fieldUlt_aplicacao(_back),
               SizedBox(height: 25),
               fieldIntervalo_doses(_back),

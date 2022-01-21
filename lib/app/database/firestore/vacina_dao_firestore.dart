@@ -22,6 +22,7 @@ class VacinaDAOFirestore implements VacinaDAO {
               ult_aplicacao: doc['ult_aplicacao'],
               intervalo_doses: doc['intervalo_doses'],
               quant_doses: doc['quant_doses'],
+              data_prox_aplic: doc['data_prox_aplic'],
               uid: doc['uid'],
             ))
         .toList();
@@ -41,6 +42,7 @@ class VacinaDAOFirestore implements VacinaDAO {
       'intervalo_doses': vacina.intervalo_doses,
       'quant_doses': vacina.quant_doses,
       'uid': vacina.uid,
+      'data_prox_aplic': vacina.data_prox_aplic,
     });
   }
 }

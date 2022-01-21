@@ -1,20 +1,44 @@
 //@dart=2.9
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use
-import 'package:tcc/app/domain/entities/vacina.dart';
-import 'package:tcc/app/domain/services/auth_service.dart';
-import 'package:tcc/app/view/bar/bloc.navigation_bloc/navigation_bloc.dart';
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use, non_constant_identifier_names, must_be_immutable
 
-import 'package:tcc/app/view/evento/vacina/vacina_form.dart';
-import 'package:tcc/app/view/evento/vacina/vacina_list_back.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-class VacinaList extends StatelessWidget with NavigationStates {
+import 'package:tcc/app/domain/entities/vacina.dart';
+
+import 'package:tcc/app/domain/services/auth_service.dart';
+import 'package:tcc/app/view/bar/bloc.navigation_bloc/navigation_bloc.dart';
+
+import 'package:tcc/app/view/evento/vacina/vacina_list_back.dart';
+
+class VacinaList extends StatefulWidget with NavigationStates {
+  @override
+  State<VacinaList> createState() => _VacinaListState();
+}
+
+class _VacinaListState extends State<VacinaList> {
+  String data = "";
+
   final _back = VacinaListBack();
 
   Widget iconEditButton(Function onPressed) {
     return IconButton(
         icon: Icon(Icons.edit), color: Colors.green, onPressed: onPressed);
+  }
+
+  Widget fieldData() {
+    return TextFormField(
+        onChanged: (value) => setState(() => data = value),
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          hintText: 'Filtro de data: ',
+        ));
   }
 
   Widget iconRemoveButton(BuildContext context, Function remove) {
@@ -53,7 +77,7 @@ class VacinaList extends StatelessWidget with NavigationStates {
           centerTitle: true,
           backgroundColor: Colors.white,
           title: Text(
-            'Lista de vacinas',
+            'Lista de eventos padrões',
             style: TextStyle(color: Colors.green),
           ),
           actions: [
@@ -64,65 +88,77 @@ class VacinaList extends StatelessWidget with NavigationStates {
                 size: 40,
               ),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => VacinaForm()));
+                _back.goToForm(context);
               },
             ),
           ],
         ),
         body: Observer(builder: (context) {
-          return FutureBuilder(
-              future: _back.list,
-              builder: (context, futuro) {
-                if (!futuro.hasData) {
-                  return CircularProgressIndicator();
-                } else {
-                  List<Vacina> lista = futuro.data;
-                  lista.removeWhere((e) => e.uid != AuthService.getUser().uid);
-
-                  return ListView.builder(
-                    itemCount: lista.length,
-                    itemBuilder: (context, i) {
-                      var vacina = lista[i];
-                      return Container(
-                          margin: const EdgeInsets.all(8),
-                          padding: const EdgeInsets.all(3.0),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border:
-                                  Border.all(color: Colors.black, width: 1.3)),
-                          child: ListTile(
-                            leading: CircleAvatar(
-                                radius: 28,
-                                backgroundColor: Colors.black,
-                                child: CircleAvatar(
-                                    radius: 27,
-                                    backgroundColor: Colors.white,
-                                    backgroundImage: NetworkImage(
-                                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUw-t2Op2vTVwrq_2isyqgOotFgiyHLhGvXg&usqp=CAU'))),
-                            title: Text(vacina.nome),
-                            onTap: () {
-                              _back.goToDetails(context, vacina);
-                            },
-                            trailing: Container(
-                              width: 100,
-                              child: Row(
-                                children: [
-                                  iconEditButton(() {
-                                    _back.goToForm(context, vacina);
-                                  }),
-                                  iconRemoveButton(context, () {
-                                    _back.remove(vacina.id);
-                                    Navigator.of(context).pop();
-                                  })
-                                ],
-                              ),
-                            ),
-                          ));
-                    },
-                  );
-                }
-              });
+          return CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(child: fieldData()),
+              FutureBuilder(
+                  future: _back.list,
+                  builder: (context, futuro) {
+                    if (!futuro.hasData) {
+                      return SliverToBoxAdapter(
+                          child: CircularProgressIndicator());
+                    } else {
+                      List<Vacina> lista = futuro.data;
+                      lista.removeWhere(
+                          (e) => e.uid != AuthService.getUser().uid);
+                      var lista_filtrada = lista
+                          .where((e) => e.data_prox_aplic.contains(data))
+                          .toList();
+                      return SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                        (context, index) {
+                          var vacina = lista_filtrada[index];
+                          return makeEventWidget(vacina, context);
+                        },
+                        childCount: lista_filtrada.length,
+                      ));
+                    }
+                  })
+            ],
+          );
         }));
+  }
+
+  Container makeEventWidget(Vacina vacina, BuildContext context) {
+    return Container(
+        margin: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(3.0),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colors.black, width: 1.3)),
+        child: ListTile(
+          leading: CircleAvatar(
+              radius: 28,
+              backgroundColor: Colors.black,
+              child: CircleAvatar(
+                  radius: 27,
+                  backgroundColor: Colors.white,
+                  backgroundImage: NetworkImage(
+                      'https://png.pngtree.com/png-vector/20190926/ourlarge/pngtree-schedule-glyph-icon-vector-png-image_1742916.jpg'))),
+          title: Text(vacina.nome),
+          onTap: () {
+            _back.goToDetails(context, vacina);
+          },
+          trailing: Container(
+            width: 100,
+            child: Row(
+              children: [
+                iconEditButton(() {
+                  _back.goToForm(context, vacina);
+                }),
+                iconRemoveButton(context, () {
+                  _back.remove(vacina.id);
+                  Navigator.of(context).pop();
+                })
+              ],
+            ),
+          ),
+        ));
   }
 }

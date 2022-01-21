@@ -16,13 +16,15 @@ class VacinaFormBack {
   bool _intervalo_dosesIsValid;
   bool _quant_dosesIsValid;
   bool _identificacaoIsValid;
+  bool _data_prox_aplicIsValid;
 
   bool get isValid =>
       _nomeIsValid &&
       _ult_aplicacaoIsValid &&
       _intervalo_dosesIsValid &&
       _quant_dosesIsValid &&
-      _identificacaoIsValid;
+      _identificacaoIsValid &&
+      _data_prox_aplicIsValid;
 
   VacinaFormBack(BuildContext context) {
     var parameter = ModalRoute.of(context).settings.arguments;
@@ -33,6 +35,7 @@ class VacinaFormBack {
             intervalo_doses: '',
             quant_doses: '',
             identificacao: '',
+            data_prox_aplic: '',
             uid: AuthService.getUser().uid,
             id: null,
           )
@@ -61,6 +64,17 @@ class VacinaFormBack {
       return null;
     } catch (e) {
       _ult_aplicacaoIsValid = false;
+      return e.toString();
+    }
+  }
+
+  String validateData_prox_aplic(String data_prox_aplic) {
+    try {
+      _service.validateUlt_aplicacao(data_prox_aplic);
+      _data_prox_aplicIsValid = true;
+      return null;
+    } catch (e) {
+      _data_prox_aplicIsValid = false;
       return e.toString();
     }
   }

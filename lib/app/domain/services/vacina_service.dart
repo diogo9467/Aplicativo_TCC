@@ -15,6 +15,7 @@ class VacinaService {
     validateQuant_doses(vacina.quant_doses);
     validateIntervalo_doses(vacina.intervalo_doses);
     validateIdentificacao(vacina.identificacao);
+    validateData_prox_aplic(vacina.data_prox_aplic);
 
     _dao.save(vacina);
   }
@@ -42,6 +43,12 @@ class VacinaService {
   }
 
   validateIntervalo_doses(String intervalo_doses) {}
+
+  validateData_prox_aplic(String data_prox_aplic) {
+    if (data_prox_aplic == "") {
+      throw DomainLayerException('A identificacao é obrigatória.');
+    }
+  }
 
   validateIdentificacao(String identificacao) {
     if (identificacao == "") {

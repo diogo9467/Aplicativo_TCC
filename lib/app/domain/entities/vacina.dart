@@ -9,6 +9,7 @@ class Vacina {
   String intervalo_doses;
   String identificacao;
   String uid;
+  String data_prox_aplic;
 
   Vacina({
     this.id,
@@ -18,5 +19,6 @@ class Vacina {
     this.intervalo_doses,
     this.identificacao,
     this.uid,
+    this.data_prox_aplic,
   });
 }

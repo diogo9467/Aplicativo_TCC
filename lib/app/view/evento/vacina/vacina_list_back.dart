@@ -1,14 +1,12 @@
 //@dart=2.9
 // ignore_for_file: prefer_final_fields
 
-import 'package:flutter/material.dart';
 import 'package:tcc/app/domain/entities/vacina.dart';
 import 'package:tcc/app/domain/services/vacina_service.dart';
-
+import 'package:tcc/app/my_app.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
-import 'package:tcc/app/view/evento/vacina/vacina_details.dart';
-import 'package:tcc/app/view/evento/vacina/vacina_form.dart';
 
 part 'vacina_list_back.g.dart';
 
@@ -33,19 +31,13 @@ abstract class _VacinaListBack with Store {
 
   //método para chamar o form salvar/alterar
   goToForm(BuildContext context, [Vacina vacina]) {
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (context) => VacinaForm()),
-      (Route<dynamic> route) => false,
-    );
+    Navigator.of(context)
+        .pushNamed(MyApp.VACINA_FORM, arguments: vacina)
+        .then(refreshList);
   }
 
   goToDetails(BuildContext context, Vacina vacina) {
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (context) => VacinaDetails()),
-      (Route<dynamic> route) => false,
-    );
+    Navigator.of(context).pushNamed(MyApp.VACINA_DETAILS, arguments: vacina);
   }
 
   //excluir
