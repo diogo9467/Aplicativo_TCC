@@ -116,14 +116,6 @@ class _LoginScreenState extends State<LoginScreen> {
           )),
     );
 
-    /*Get.snackbar(
-                                'Loading...',
-                                'Please wait.',
-                                backgroundColor: Colors.black,
-                                colorText: Colors.white,
-                                showProgressIndicator: true,
-                              );*/
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -170,7 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           RegistrationScreen()));
                             },
                             child: Text(
-                              "Cadestre-se agora",
+                              "Cadastre-se agora",
                               style: TextStyle(
                                   color: Colors.green,
                                   fontWeight: FontWeight.bold,

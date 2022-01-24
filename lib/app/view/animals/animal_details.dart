@@ -87,7 +87,7 @@ class AnimalDetails extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: ListTile(
-                    title: Text('Inicio do período de lactacao'),
+                    title: Text('Inicio do período de lactação'),
                     subtitle: Text('${animal.inicio_lactacao}'),
                   ),
                 ),

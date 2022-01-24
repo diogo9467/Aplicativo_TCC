@@ -28,7 +28,6 @@ class _EventoPadraoListState extends State<EventoPadraoList> {
   Widget fieldData() {
     return TextFormField(
         onChanged: (value) => setState(() => data = value),
-        keyboardType: TextInputType.number,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),

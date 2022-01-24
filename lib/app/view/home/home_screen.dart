@@ -102,7 +102,7 @@ class _HomeScreenState extends State<HomePage> with NavigationStates {
           centerTitle: true,
           backgroundColor: Colors.white,
           title: Text(
-            'Agrobusiness',
+            'Agribusiness',
             style: TextStyle(color: Colors.green),
           ),
         ),
@@ -261,7 +261,7 @@ class _HomeScreenState extends State<HomePage> with NavigationStates {
                   color: Colors.green,
                 ),
                 child: Text(
-                  "Seus eventos",
+                  "Seus eventos de hoje:",
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 )),
             Observer(builder: (context) {

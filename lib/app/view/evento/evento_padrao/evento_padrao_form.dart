@@ -82,7 +82,7 @@ class _EventoPadraoFormState extends State<EventoPadraoForm> {
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
           ),
-          hintText: 'Observacao',
+          hintText: 'Observação',
         ));
   }
 
@@ -98,7 +98,7 @@ class _EventoPadraoFormState extends State<EventoPadraoForm> {
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
           ),
-          hintText: 'Coloque um animal caso queira:',
+          hintText: 'Adicione um animal (opcional) ',
         ));
   }
 
@@ -108,7 +108,7 @@ class _EventoPadraoFormState extends State<EventoPadraoForm> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: Colors.black,
+          color: Colors.green,
         ),
         centerTitle: true,
         backgroundColor: Colors.white,

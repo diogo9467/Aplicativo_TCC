@@ -108,7 +108,7 @@ class _VacinaFormState extends State<VacinaForm> {
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
           ),
-          hintText: 'Ultima aplicacao',
+          hintText: 'Última aplicação',
         ));
   }
 
@@ -125,7 +125,7 @@ class _VacinaFormState extends State<VacinaForm> {
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
           ),
-          hintText: 'Intervalo entre doses em dias',
+          hintText: 'Intervalo entre doses (dias)',
         ));
   }
 
@@ -152,7 +152,7 @@ class _VacinaFormState extends State<VacinaForm> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: Colors.black,
+          color: Colors.green,
         ),
         centerTitle: true,
         backgroundColor: Colors.white,

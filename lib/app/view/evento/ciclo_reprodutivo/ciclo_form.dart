@@ -47,7 +47,7 @@ class _CicloFormState extends State<CicloForm> {
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
           ),
-          hintText: 'Identificacao',
+          hintText: 'Identificação',
         ));
   }
 
@@ -66,7 +66,7 @@ class _CicloFormState extends State<CicloForm> {
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
           ),
-          hintText: 'Ultimo Cio:',
+          hintText: 'Último Cio:',
         ));
   }
 
@@ -123,7 +123,7 @@ class _CicloFormState extends State<CicloForm> {
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
           ),
-          hintText: 'Dia do próximo cio se o animal tenha tido cria',
+          hintText: 'Dia do próximo cio (caso o animal tenha tido cria)',
         ));
   }
 
@@ -133,7 +133,7 @@ class _CicloFormState extends State<CicloForm> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: Colors.black,
+          color: Colors.green,
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
@@ -156,15 +156,9 @@ class _CicloFormState extends State<CicloForm> {
                 margin: EdgeInsets.symmetric(),
                 height: 60,
                 width: MediaQuery.of(context).size.width * 1,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6.0),
-                  border: Border.all(
-                    width: 1,
-                    color: Colors.black,
-                  ),
-                ),
                 child: Text(
-                    "Recomendamos que caso o animal não tenha tido cria recentemente o período entre cios seja considerado 22 dias "),
+                    "Recomendamos que caso o animal não tenha tido cria recentemente o período entre cios seja considerado 22 dias. ",
+                    style: TextStyle(color: Colors.green)),
               ),
               SizedBox(height: 25),
               fieldDia_cio(_back),
@@ -175,15 +169,9 @@ class _CicloFormState extends State<CicloForm> {
                 margin: EdgeInsets.symmetric(),
                 height: 60,
                 width: MediaQuery.of(context).size.width * 1,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6.0),
-                  border: Border.all(
-                    width: 1,
-                    color: Colors.black,
-                  ),
-                ),
                 child: Text(
-                    " Recomendamos que caso o animal não tenha tido cria recentemente o período entre cios seja considerado 22 dias. "),
+                    "Recomendamos que caso o animal tenha tido cria recentemente o período para o próximo cio seja considerado 55 dias. ",
+                    style: TextStyle(color: Colors.green)),
               ),
               SizedBox(height: 25),
               fieldDia_cria(_back),

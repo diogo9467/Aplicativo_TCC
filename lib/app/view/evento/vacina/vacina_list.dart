@@ -29,7 +29,6 @@ class _VacinaListState extends State<VacinaList> {
   Widget fieldData() {
     return TextFormField(
         onChanged: (value) => setState(() => data = value),
-        keyboardType: TextInputType.number,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
