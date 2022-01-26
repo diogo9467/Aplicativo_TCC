@@ -7,15 +7,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:tcc/app/domain/services/auth_service.dart';
 import 'package:tcc/app/view/bar/bloc.navigation_bloc/navigation_bloc.dart';
-import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_form.dart';
 import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_list_back.dart';
 
-class CicloList extends StatelessWidget with NavigationStates {
+class CicloList extends StatefulWidget with NavigationStates {
+  @override
+  State<CicloList> createState() => _CicloListState();
+}
+
+class _CicloListState extends State<CicloList> {
+  String data = "";
+
   final _back = CicloListBack();
 
   Widget iconEditButton(Function onPressed) {
     return IconButton(
         icon: Icon(Icons.edit), color: Colors.green, onPressed: onPressed);
+  }
+
+  Widget fieldData() {
+    return TextFormField(
+        onChanged: (value) => setState(() => data = value),
+        decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          hintText: 'Data do último cio: ',
+        ));
   }
 
   Widget iconRemoveButton(BuildContext context, Function remove) {
@@ -65,65 +85,77 @@ class CicloList extends StatelessWidget with NavigationStates {
                 size: 40,
               ),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => CicloForm()));
+                Navigator.of(context).pop();
               },
             ),
           ],
         ),
         body: Observer(builder: (context) {
-          return FutureBuilder(
-              future: _back.list,
-              builder: (context, futuro) {
-                if (!futuro.hasData) {
-                  return CircularProgressIndicator();
-                } else {
-                  List<Ciclo> lista = futuro.data;
-                  lista.removeWhere((e) => e.uid != AuthService.getUser().uid);
-
-                  return ListView.builder(
-                    itemCount: lista.length,
-                    itemBuilder: (context, i) {
-                      var ciclo = lista[i];
-                      return Container(
-                          margin: const EdgeInsets.all(8),
-                          padding: const EdgeInsets.all(3.0),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border:
-                                  Border.all(color: Colors.black, width: 1.3)),
-                          child: ListTile(
-                            leading: CircleAvatar(
-                                radius: 28,
-                                backgroundColor: Colors.black,
-                                child: CircleAvatar(
-                                    radius: 27,
-                                    backgroundColor: Colors.white,
-                                    backgroundImage: NetworkImage(
-                                        'https://simcides.com.br/wp-content/uploads/2020/06/cow2.png'))),
-                            title: Text(ciclo.identificacao),
-                            onTap: () {
-                              _back.goToDetails(context, ciclo);
-                            },
-                            trailing: Container(
-                              width: 100,
-                              child: Row(
-                                children: [
-                                  iconEditButton(() {
-                                    _back.goToForm(context, ciclo);
-                                  }),
-                                  iconRemoveButton(context, () {
-                                    _back.remove(ciclo.id);
-                                    Navigator.of(context).pop();
-                                  })
-                                ],
-                              ),
-                            ),
-                          ));
-                    },
-                  );
-                }
-              });
+          return CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(child: fieldData()),
+              FutureBuilder(
+                  future: _back.list,
+                  builder: (context, futuro) {
+                    if (!futuro.hasData) {
+                      return SliverToBoxAdapter(
+                          child: CircularProgressIndicator());
+                    } else {
+                      List<Ciclo> lista = futuro.data;
+                      lista.removeWhere(
+                          (e) => e.uid != AuthService.getUser().uid);
+                      var lista_filtrada = lista
+                          .where((e) => e.ultimo_cio.contains(data))
+                          .toList();
+                      return SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                        (context, index) {
+                          var evento_padrao = lista_filtrada[index];
+                          return makeEventWidget(evento_padrao, context);
+                        },
+                        childCount: lista_filtrada.length,
+                      ));
+                    }
+                  })
+            ],
+          );
         }));
+  }
+
+  Container makeEventWidget(Ciclo ciclo, BuildContext context) {
+    return Container(
+        margin: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(3.0),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colors.black, width: 1.3)),
+        child: ListTile(
+          leading: CircleAvatar(
+              radius: 28,
+              backgroundColor: Colors.black,
+              child: CircleAvatar(
+                  radius: 27,
+                  backgroundColor: Colors.white,
+                  backgroundImage: NetworkImage(
+                      'https://simcides.com.br/wp-content/uploads/2020/06/cow2.png'))),
+          title: Text(ciclo.identificacao),
+          onTap: () {
+            _back.goToDetails(context, ciclo);
+          },
+          trailing: Container(
+            width: 100,
+            child: Row(
+              children: [
+                iconEditButton(() {
+                  _back.goToForm(context, ciclo);
+                }),
+                iconRemoveButton(context, () {
+                  _back.remove(ciclo.id);
+                  Navigator.of(context).pop();
+                })
+              ],
+            ),
+          ),
+        ));
   }
 }
