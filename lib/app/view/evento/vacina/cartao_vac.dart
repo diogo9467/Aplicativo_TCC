@@ -1,24 +1,25 @@
 //@dart=2.9
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use, non_constant_identifier_names, must_be_immutable
 
-import 'package:tcc/app/domain/entities/evento_padrao.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+
+import 'package:tcc/app/domain/entities/vacina.dart';
+
 import 'package:tcc/app/domain/services/auth_service.dart';
 import 'package:tcc/app/view/bar/bloc.navigation_bloc/navigation_bloc.dart';
 
-import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_list_back.dart';
+import 'package:tcc/app/view/evento/vacina/vacina_list_back.dart';
 
-class EventoPadraoList extends StatefulWidget with NavigationStates {
+class CartaoVac extends StatefulWidget with NavigationStates {
   @override
-  State<EventoPadraoList> createState() => _EventoPadraoListState();
+  State<CartaoVac> createState() => _CartaoVacState();
 }
 
-class _EventoPadraoListState extends State<EventoPadraoList> {
-  String data = "";
+class _CartaoVacState extends State<CartaoVac> {
+  String nome = "";
 
-  final _back = EventoPadraoListBack();
+  final _back = VacinaListBack();
 
   Widget iconEditButton(Function onPressed) {
     return IconButton(
@@ -27,7 +28,7 @@ class _EventoPadraoListState extends State<EventoPadraoList> {
 
   Widget fieldData() {
     return TextFormField(
-        onChanged: (value) => setState(() => data = value),
+        onChanged: (value) => setState(() => nome = value),
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
@@ -35,7 +36,7 @@ class _EventoPadraoListState extends State<EventoPadraoList> {
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
           ),
-          hintText: 'Data: ',
+          hintText: 'Digite o nome do animal: ',
         ));
   }
 
@@ -75,7 +76,7 @@ class _EventoPadraoListState extends State<EventoPadraoList> {
           centerTitle: true,
           backgroundColor: Colors.white,
           title: Text(
-            'Lista de eventos padrões',
+            'Cartão de Vacinas',
             style: TextStyle(color: Colors.green),
           ),
           actions: [
@@ -102,16 +103,17 @@ class _EventoPadraoListState extends State<EventoPadraoList> {
                       return SliverToBoxAdapter(
                           child: CircularProgressIndicator());
                     } else {
-                      List<EventoPadrao> lista = futuro.data;
+                      List<Vacina> lista = futuro.data;
                       lista.removeWhere(
                           (e) => e.uid != AuthService.getUser().uid);
-                      var lista_filtrada =
-                          lista.where((e) => e.data.contains(data)).toList();
+                      var lista_filtrada = lista
+                          .where((e) => e.data_prox_aplic.contains(nome))
+                          .toList();
                       return SliverList(
                           delegate: SliverChildBuilderDelegate(
                         (context, index) {
-                          var evento_padrao = lista_filtrada[index];
-                          return makeEventWidget(evento_padrao, context);
+                          var vacina = lista_filtrada[index];
+                          return makeEventWidget(vacina, context);
                         },
                         childCount: lista_filtrada.length,
                       ));
@@ -122,7 +124,7 @@ class _EventoPadraoListState extends State<EventoPadraoList> {
         }));
   }
 
-  Container makeEventWidget(EventoPadrao evento_padrao, BuildContext context) {
+  Container makeEventWidget(Vacina vacina, BuildContext context) {
     return Container(
         margin: const EdgeInsets.all(8),
         padding: const EdgeInsets.all(3.0),
@@ -137,20 +139,20 @@ class _EventoPadraoListState extends State<EventoPadraoList> {
                   radius: 27,
                   backgroundColor: Colors.white,
                   backgroundImage: NetworkImage(
-                      'https://png.pngtree.com/png-vector/20190926/ourlarge/pngtree-schedule-glyph-icon-vector-png-image_1742916.jpg'))),
-          title: Text(evento_padrao.nome),
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUw-t2Op2vTVwrq_2isyqgOotFgiyHLhGvXg&usqp=CAU'))),
+          title: Text(vacina.nome),
           onTap: () {
-            _back.goToDetails(context, evento_padrao);
+            _back.goToDetails(context, vacina);
           },
           trailing: Container(
             width: 100,
             child: Row(
               children: [
                 iconEditButton(() {
-                  _back.goToForm(context, evento_padrao);
+                  _back.goToForm(context, vacina);
                 }),
                 iconRemoveButton(context, () {
-                  _back.remove(evento_padrao.id);
+                  _back.remove(vacina.id);
                   Navigator.of(context).pop();
                 })
               ],

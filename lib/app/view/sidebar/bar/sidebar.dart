@@ -115,13 +115,6 @@ class _SideBarState extends State<SideBar>
                             fontSize: 18,
                           ),
                         ),
-                        /*leading: CircleAvatar(
-                          child: Icon(
-                            Icons.perm_identity,
-                            color: Colors.white,
-                          ),
-                          radius: 40,
-                        ),*/
                       ),
                       Divider(
                         height: 64,
@@ -168,6 +161,14 @@ class _SideBarState extends State<SideBar>
                           onIconPressed();
                           BlocProvider.of<NavigationBloc>(context)
                               .add(NavigationEvents.CicloListClickedEvent);
+                        },
+                      ),
+                      MenuItem(
+                        title: "Cartão de vacinas",
+                        onTap: () {
+                          onIconPressed();
+                          BlocProvider.of<NavigationBloc>(context)
+                              .add(NavigationEvents.CartaoVacClickedEvent);
                         },
                       ),
                       Divider(

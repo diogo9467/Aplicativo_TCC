@@ -156,6 +156,14 @@ class _SideBarState extends State<SideBar>
                               .add(NavigationEvents.CicloListClickedEvent);
                         },
                       ),
+                      MenuItem(
+                        title: "Cartão de Vacinas",
+                        onTap: () {
+                          onIconPressed();
+                          BlocProvider.of<NavigationBloc>(context)
+                              .add(NavigationEvents.CartaoVacClickedEvent);
+                        },
+                      ),
                       Divider(
                         thickness: 0.5,
                         color: Colors.white.withOpacity(0.3),

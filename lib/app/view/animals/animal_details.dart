@@ -1,5 +1,5 @@
 //@dart=2.9
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_string_interpolations
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_string_interpolations, deprecated_member_use
 
 import 'package:tcc/app/domain/entities/animal.dart';
 import 'package:tcc/app/view/animals/animal_details_back.dart';

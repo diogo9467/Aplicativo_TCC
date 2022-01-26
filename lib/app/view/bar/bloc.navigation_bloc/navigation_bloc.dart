@@ -7,6 +7,7 @@ import 'package:tcc/app/view/animals/animal_list.dart';
 
 import 'package:tcc/app/view/evento/ciclo_reprodutivo/ciclo_list.dart';
 import 'package:tcc/app/view/evento/evento_padrao/evento_padrao_list.dart';
+import 'package:tcc/app/view/evento/vacina/cartao_vac.dart';
 import 'package:tcc/app/view/evento/vacina/vacina_list.dart';
 
 import 'package:tcc/app/view/home/home_screen.dart';
@@ -17,6 +18,7 @@ enum NavigationEvents {
   VacinaListClickedEvent,
   CicloListClickedEvent,
   EventoPadraoClickedEvent,
+  CartaoVacClickedEvent,
 }
 
 abstract class NavigationStates {}
@@ -43,6 +45,9 @@ class NavigationBloc extends Bloc<NavigationEvents, NavigationStates> {
         break;
       case NavigationEvents.CicloListClickedEvent:
         yield CicloList();
+        break;
+      case NavigationEvents.CartaoVacClickedEvent:
+        yield CartaoVac();
         break;
     }
   }

@@ -36,7 +36,7 @@ class _VacinaListState extends State<VacinaList> {
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
           ),
-          hintText: 'Filtro de data: ',
+          hintText: 'Data: ',
         ));
   }
 
@@ -76,7 +76,7 @@ class _VacinaListState extends State<VacinaList> {
           centerTitle: true,
           backgroundColor: Colors.white,
           title: Text(
-            'Lista de eventos padrões',
+            'Lista de vacinas',
             style: TextStyle(color: Colors.green),
           ),
           actions: [
@@ -139,7 +139,7 @@ class _VacinaListState extends State<VacinaList> {
                   radius: 27,
                   backgroundColor: Colors.white,
                   backgroundImage: NetworkImage(
-                      'https://png.pngtree.com/png-vector/20190926/ourlarge/pngtree-schedule-glyph-icon-vector-png-image_1742916.jpg'))),
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUw-t2Op2vTVwrq_2isyqgOotFgiyHLhGvXg&usqp=CAU'))),
           title: Text(vacina.nome),
           onTap: () {
             _back.goToDetails(context, vacina);
