@@ -1,6 +1,6 @@
 //@dart=2.9
 
-// ignore_for_file: unused_local_variable, avoid_print
+// ignore_for_file: unused_local_variable, avoid_print, prefer_const_constructors
 
 import 'package:tcc/app/domain/services/auth_service.dart';
 import 'package:tcc/app/injection.dart';

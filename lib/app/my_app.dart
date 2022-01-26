@@ -1,5 +1,4 @@
-//@dart=2.9
-// ignore_for_file: constant_identifier_names, use_key_in_widget_constructors, prefer_const_constructors
+// ignore_for_file: import_of_legacy_library_into_null_safe, constant_identifier_names
 
 import 'package:tcc/app/view/bar/sidebar/sidebar_layout.dart';
 
@@ -31,6 +30,8 @@ class MyApp extends StatelessWidget {
   static const CICLO_DETAILS = 'ciclo_details';
   static const CICLO_FORM = 'ciclo_form';
   static const USER_FORM = 'user_form';
+
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: SideBarLayout(),
+      home: const SideBarLayout(),
       routes: {
         ANIMAL_LIST: (context) => AnimalList(),
         ANIMAL_FORM: (context) => AnimalForm(),
