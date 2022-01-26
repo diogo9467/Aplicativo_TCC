@@ -1,5 +1,5 @@
 //@dart=2.9
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use, non_constant_identifier_names
 import 'package:tcc/app/domain/entities/animal.dart';
 import 'package:tcc/app/domain/services/auth_service.dart';
 import 'package:tcc/app/view/animals/animal_list_back.dart';
@@ -7,7 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:tcc/app/view/bar/bloc.navigation_bloc/navigation_bloc.dart';
 
-class AnimalList extends StatelessWidget with NavigationStates {
+class AnimalList extends StatefulWidget with NavigationStates {
+  @override
+  State<AnimalList> createState() => _AnimalListState();
+}
+
+class _AnimalListState extends State<AnimalList> {
+  String data = "";
+
   final _back = AnimalListBack();
 
   CircleAvatar circleAvatar(String url) {
@@ -24,6 +31,20 @@ class AnimalList extends StatelessWidget with NavigationStates {
   Widget iconEditButton(Function onPressed) {
     return IconButton(
         icon: Icon(Icons.edit), color: Colors.green, onPressed: onPressed);
+  }
+
+  Widget fieldData() {
+    return TextFormField(
+        onChanged: (value) => setState(() => data = value),
+        decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 0.5),
+          ),
+          hintText: 'Identficador do animal: ',
+        ));
   }
 
   Widget iconRemoveButton(BuildContext context, Function remove) {
@@ -78,51 +99,71 @@ class AnimalList extends StatelessWidget with NavigationStates {
           ],
         ),
         body: Observer(builder: (context) {
-          return FutureBuilder(
-              future: _back.list,
-              builder: (context, futuro) {
-                if (!futuro.hasData) {
-                  return CircularProgressIndicator();
-                } else {
-                  List<Animal> lista = futuro.data;
-                  lista.removeWhere((e) => e.uid != AuthService.getUser().uid);
-
-                  return ListView.builder(
-                    itemCount: lista.length,
-                    itemBuilder: (context, i) {
-                      var animal = lista[i];
-                      return Container(
-                          margin: const EdgeInsets.all(8),
-                          padding: const EdgeInsets.all(3.0),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border:
-                                  Border.all(color: Colors.black, width: 1.3)),
-                          child: ListTile(
-                            leading: circleAvatar(animal.urlAvatar),
-                            title: Text(animal.identificacao),
-                            onTap: () {
-                              _back.goToDetails(context, animal);
-                            },
-                            trailing: Container(
-                              width: 100,
-                              child: Row(
-                                children: [
-                                  iconEditButton(() {
-                                    _back.goToForm(context, animal);
-                                  }),
-                                  iconRemoveButton(context, () {
-                                    _back.remove(animal.id);
-                                    Navigator.of(context).pop();
-                                  })
-                                ],
-                              ),
-                            ),
-                          ));
-                    },
-                  );
-                }
-              });
+          return CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(child: fieldData()),
+              FutureBuilder(
+                  future: _back.list,
+                  builder: (context, futuro) {
+                    if (!futuro.hasData) {
+                      return SliverToBoxAdapter(
+                          child: CircularProgressIndicator());
+                    } else {
+                      List<Animal> lista = futuro.data;
+                      lista.removeWhere(
+                          (e) => e.uid != AuthService.getUser().uid);
+                      var lista_filtrada = lista
+                          .where((e) => e.identificacao.contains(data))
+                          .toList();
+                      return SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                        (context, index) {
+                          var animal = lista_filtrada[index];
+                          return makeEventWidget(animal, context);
+                        },
+                        childCount: lista_filtrada.length,
+                      ));
+                    }
+                  })
+            ],
+          );
         }));
+  }
+
+  Container makeEventWidget(Animal animal, BuildContext context) {
+    return Container(
+        margin: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(3.0),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colors.black, width: 1.3)),
+        child: ListTile(
+          leading: CircleAvatar(
+              radius: 28,
+              backgroundColor: Colors.black,
+              child: CircleAvatar(
+                  radius: 27,
+                  backgroundColor: Colors.white,
+                  backgroundImage: NetworkImage(
+                      'https://simcides.com.br/wp-content/uploads/2020/06/cow2.png'))),
+          title: Text(animal.identificacao),
+          onTap: () {
+            _back.goToDetails(context, animal);
+          },
+          trailing: Container(
+            width: 100,
+            child: Row(
+              children: [
+                iconEditButton(() {
+                  _back.goToForm(context, animal);
+                }),
+                iconRemoveButton(context, () {
+                  _back.remove(animal.id);
+                  Navigator.of(context).pop();
+                })
+              ],
+            ),
+          ),
+        ));
   }
 }

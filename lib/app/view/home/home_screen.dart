@@ -72,6 +72,7 @@ class _HomeScreenState extends State<HomePage> with NavigationStates {
 
   UserModel loggedInUser = UserModel();
   String uid;
+  String dataAtual = DateFormat("dd/MM/yyyy").format(DateTime.now());
 
   @override
   void initState() {
@@ -274,6 +275,7 @@ class _HomeScreenState extends State<HomePage> with NavigationStates {
                       List<EventoPadrao> lista = futuro.data;
                       lista.removeWhere(
                           (e) => e.uid != AuthService.getUser().uid);
+                      lista.removeWhere((e) => e.data != dataAtual);
 
                       return ListView.builder(
                         scrollDirection: Axis.vertical,
@@ -331,6 +333,7 @@ class _HomeScreenState extends State<HomePage> with NavigationStates {
                       List<Vacina> lista = futuro.data;
                       lista.removeWhere(
                           (e) => e.uid != AuthService.getUser().uid);
+                      lista.removeWhere((e) => e.data_prox_aplic != dataAtual);
 
                       return ListView.builder(
                         scrollDirection: Axis.vertical,
@@ -388,6 +391,7 @@ class _HomeScreenState extends State<HomePage> with NavigationStates {
                       List<Ciclo> lista = futuro.data;
                       lista.removeWhere(
                           (e) => e.uid != AuthService.getUser().uid);
+                      lista.removeWhere((e) => e.ultimo_cio != dataAtual);
 
                       return ListView.builder(
                         scrollDirection: Axis.vertical,
