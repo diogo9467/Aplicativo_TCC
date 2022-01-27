@@ -1,5 +1,5 @@
 //@dart=2.9
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use, non_constant_identifier_names, must_be_immutable
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use, non_constant_identifier_names, must_be_immutable, unused_local_variable
 
 import 'package:tcc/app/domain/entities/evento_padrao.dart';
 
@@ -95,6 +95,21 @@ class _EventoPadraoListState extends State<EventoPadraoList> {
           return CustomScrollView(
             slivers: [
               SliverToBoxAdapter(child: fieldData()),
+              SliverToBoxAdapter(
+                child: RaisedButton(
+                  onPressed: () {
+                    Future<DateTime> selecioneumaData = showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(2022),
+                        lastDate: DateTime(2023));
+                  },
+                  color: Colors.green,
+                  child: Container(
+                      child: Text("Selecione uma data",
+                          style: TextStyle(color: Colors.white))),
+                ),
+              ),
               FutureBuilder(
                   future: _back.list,
                   builder: (context, futuro) {

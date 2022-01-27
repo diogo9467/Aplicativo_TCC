@@ -36,7 +36,7 @@ class _CartaoVacState extends State<CartaoVac> {
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 0.5),
           ),
-          hintText: 'Digite o nome do animal: ',
+          hintText: 'Identificador do animal: ',
         ));
   }
 
@@ -107,7 +107,7 @@ class _CartaoVacState extends State<CartaoVac> {
                       lista.removeWhere(
                           (e) => e.uid != AuthService.getUser().uid);
                       var lista_filtrada = lista
-                          .where((e) => e.data_prox_aplic.contains(nome))
+                          .where((e) => e.identificacao.contains(nome))
                           .toList();
                       return SliverList(
                           delegate: SliverChildBuilderDelegate(

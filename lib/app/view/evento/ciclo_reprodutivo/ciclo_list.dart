@@ -85,7 +85,7 @@ class _CicloListState extends State<CicloList> {
                 size: 40,
               ),
               onPressed: () {
-                Navigator.of(context).pop();
+                _back.goToForm(context);
               },
             ),
           ],
