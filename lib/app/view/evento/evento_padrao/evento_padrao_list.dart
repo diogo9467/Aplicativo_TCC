@@ -95,7 +95,7 @@ class _EventoPadraoListState extends State<EventoPadraoList> {
           return CustomScrollView(
             slivers: [
               SliverToBoxAdapter(child: fieldData()),
-              SliverToBoxAdapter(
+              /*SliverToBoxAdapter(
                 child: RaisedButton(
                   onPressed: () {
                     Future<DateTime> selecioneumaData = showDatePicker(
@@ -109,7 +109,7 @@ class _EventoPadraoListState extends State<EventoPadraoList> {
                       child: Text("Selecione uma data",
                           style: TextStyle(color: Colors.white))),
                 ),
-              ),
+              ),*/
               FutureBuilder(
                   future: _back.list,
                   builder: (context, futuro) {
